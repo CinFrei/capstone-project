@@ -18,7 +18,7 @@ function BookCard({ coverUrl, title, author, description, id }) {
       <div>
         <h3>{title}</h3>
         <span>
-          von <h4>{author}</h4>
+          von<h4>{author}</h4>
         </span>
         <p>{description}</p>
       </div>
@@ -30,30 +30,24 @@ const BookCardWrapper = styled.div`
   position: relative;
   min-width: 0;
   display: grid;
-  grid-template-columns: 40% 57%;
+  grid-template-columns: 40% 60%;
   grid-gap: 10px;
   padding: 10px;
-  background: rgb(255, 255, 255);
-  background: linear-gradient(
-    0deg,
-    rgba(255, 255, 255, 1) 0%,
-    rgba(247, 247, 247, 1) 100%
-  );
-  border: 2px solid #4b4c64;
+  background: var(--primary-white);
+  background: var(--primary-background-gradient);
+  border: 2px solid var(--dark-blue);
   border-radius: 3px;
 
   h3 {
-    margin: 1%;
+    margin: 10px;
   }
+
   h4 {
     display: inline;
-    margin: 1%;
+    margin: 10px;
   }
+
   img {
     width: 100%;
-  }
-  span,
-  p {
-    font-size: 0.85em;
   }
 `

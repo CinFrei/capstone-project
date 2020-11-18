@@ -1,14 +1,52 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`BookList renders correctly 1`] = `
-<div
-  class="BookList__BookListWrapper-sc-12dnvyz-0 blqLxc"
+.c1 {
+  position: relative;
+  min-width: 0;
+  display: grid;
+  grid-template-columns: 40% 60%;
+  grid-gap: 10px;
+  padding: 10px;
+  background: var(--primary-white);
+  background: var(--primary-background-gradient);
+  border: 2px solid var(--dark-blue);
+  border-radius: 3px;
+}
+
+.c1 h3 {
+  margin: 10px;
+}
+
+.c1 h4 {
+  display: inline;
+  margin: 10px;
+}
+
+.c1 img {
+  width: 100%;
+}
+
+.c0 {
+  display: grid;
+  grid-template-rows: 1fr auto;
+  grid-gap: 10px;
+  padding: 10px;
+}
+
+.c0 h2 {
+  text-align: left;
+  margin: 0;
+}
+
+<section
+  class="c0"
 >
   <h2>
     Bücherregal
   </h2>
   <div
-    class="BookCard__BookCardWrapper-sc-1pztwfv-0 exZSwq"
+    class="c1"
   >
     <img
       alt=""
@@ -19,7 +57,7 @@ exports[`BookList renders correctly 1`] = `
         Der letzte Wunsch
       </h3>
       <span>
-        von 
+        von
         <h4>
           Andrzej Sapkowski
         </h4>
@@ -30,7 +68,7 @@ exports[`BookList renders correctly 1`] = `
     </div>
   </div>
   <div
-    class="BookCard__BookCardWrapper-sc-1pztwfv-0 exZSwq"
+    class="c1"
   >
     <img
       alt=""
@@ -41,7 +79,7 @@ exports[`BookList renders correctly 1`] = `
         Die Zeit der Verachtung
       </h3>
       <span>
-        von 
+        von
         <h4>
           Andrzej Sapkowski
         </h4>
@@ -52,7 +90,7 @@ exports[`BookList renders correctly 1`] = `
     </div>
   </div>
   <div
-    class="BookCard__BookCardWrapper-sc-1pztwfv-0 exZSwq"
+    class="c1"
   >
     <img
       alt=""
@@ -63,7 +101,7 @@ exports[`BookList renders correctly 1`] = `
         Die Zeit des Sturms
       </h3>
       <span>
-        von 
+        von
         <h4>
           Andrzej Sapkowski
         </h4>
@@ -74,7 +112,7 @@ exports[`BookList renders correctly 1`] = `
     </div>
   </div>
   <div
-    class="BookCard__BookCardWrapper-sc-1pztwfv-0 exZSwq"
+    class="c1"
   >
     <img
       alt=""
@@ -85,18 +123,18 @@ exports[`BookList renders correctly 1`] = `
         Das Schwert der Vorsehung
       </h3>
       <span>
-        von 
+        von
         <h4>
           Andrzej Sapkowski
         </h4>
       </span>
       <p>
-        Untiere, Dämonen, Spannung und Witz "Was soll man von dir halten - ein Hexer, der jeden zweiten Tag ein einträgliches Angebot ausschlägt?
+        Untiere, Dämonen, Spannung und Witz Was soll man von dir halten - ein Hexer, der jeden zweiten Tag ein einträgliches Angebot ausschlägt?
       </p>
     </div>
   </div>
   <div
-    class="BookCard__BookCardWrapper-sc-1pztwfv-0 exZSwq"
+    class="c1"
   >
     <img
       alt=""
@@ -107,18 +145,18 @@ exports[`BookList renders correctly 1`] = `
         Die Dame vom See
       </h3>
       <span>
-        von 
+        von
         <h4>
           Andrzej Sapkowski
         </h4>
       </span>
       <p>
-        Dort trifft sie auf einen Ritter, der sie für die "Dame vom See" hält. Eine letzte große Schlacht wird das Schicksal von Ciri und Geralt erfüllen: Wird sich die Prophezeiung bewahrheiten?
+        Dort trifft sie auf einen Ritter, der sie für die Dame vom See hält. Eine letzte große Schlacht wird das Schicksal von Ciri und Geralt erfüllen: Wird sich die Prophezeiung bewahrheiten?
       </p>
     </div>
   </div>
   <div
-    class="BookCard__BookCardWrapper-sc-1pztwfv-0 exZSwq"
+    class="c1"
   >
     <img
       alt=""
@@ -129,7 +167,7 @@ exports[`BookList renders correctly 1`] = `
         Feuertaufe
       </h3>
       <span>
-        von 
+        von
         <h4>
           Andrzej Sapkowski
         </h4>
@@ -140,7 +178,7 @@ exports[`BookList renders correctly 1`] = `
     </div>
   </div>
   <div
-    class="BookCard__BookCardWrapper-sc-1pztwfv-0 exZSwq"
+    class="c1"
   >
     <img
       alt=""
@@ -151,7 +189,7 @@ exports[`BookList renders correctly 1`] = `
         Die zwölf Königreiche
       </h3>
       <span>
-        von 
+        von
         <h4>
           Jūni Kokuki
         </h4>
@@ -161,5 +199,5 @@ exports[`BookList renders correctly 1`] = `
       </p>
     </div>
   </div>
-</div>
+</section>
 `;
