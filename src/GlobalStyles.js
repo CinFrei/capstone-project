@@ -12,7 +12,7 @@ export default createGlobalStyle`
     font-size: 112.5%;
     font-family: 'Marcellus', serif;
     margin: 0;
-    color: white;
+    color: #4b4b4b;
   }
   h1,h2,h3,h4,h5,h6 {
     font-family: 'Kaushan Script', cursive;

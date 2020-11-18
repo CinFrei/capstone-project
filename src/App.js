@@ -1,18 +1,19 @@
 import styled from 'styled-components'
+import BookList from './components/BookList'
 
 export default function App() {
-    return (
-        <StyledDiv className="App">
-            <h1>Hello world!</h1>
-            <p>This is the initial setup for my Capstone project.</p>
-        </StyledDiv>
-    )
+  return (
+    <StyledApp className="App">
+      <h1>Book Owls</h1>
+      <BookList listName="Bücherregal" />
+    </StyledApp>
+  )
 }
 
-const StyledDiv = styled.div`
-    font-family: sans-serif;
-    text-align: center;
-    h1 {
-        color: skyblue;
-    }
+const StyledApp = styled.div`
+  font-family: sans-serif;
+  text-align: center;
+  h1 {
+    color: #4b4c64;
+  }
 `
