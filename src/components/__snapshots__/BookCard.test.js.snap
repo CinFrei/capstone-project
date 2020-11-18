@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BookCard renders correctly 1`] = `
+<div
+  class="BookCard__BookCardWrapper-sc-1pztwfv-0 exZSwq"
+>
+  <img
+    alt=""
+    src="blub"
+  />
+  <div>
+    <h3>
+      Buchtitel
+    </h3>
+    <span>
+      von 
+      <h4>
+        Buchautor
+      </h4>
+    </span>
+    <p>
+      Buchbeschreibung
+    </p>
+  </div>
+</div>
+`;
