@@ -1,5 +1,5 @@
 Basic BookList:
 
-```
-<BookList />
+```js
+<BookList listName="Bücherregal" />
 ```
