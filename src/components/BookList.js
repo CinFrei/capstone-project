@@ -1,6 +1,5 @@
 import PropTypes from 'prop-types'
 import styled from 'styled-components/macro'
-import {useState, useEffect} from 'react'
 
 import data from '../data/book-data.json'
 import BookCard from './BookCard'
@@ -13,16 +12,12 @@ BookList.propTypes = {
 }
 
 function BookList({ listName, id }) {
-
-  const [books, setBooks] = useState([])
-  console.log(books)
-  useEffect(() => setBooks(data.content), [])
-
   return (
     <BookListWrapper>
       <h2>{listName}</h2>
-      {books.map(({ coverUrl, title, author, description, id }) => (
-        <BookCard key={id}
+      {data.map(({ coverUrl, title, author, description, id }) => (
+        <BookCard
+          key={id}
           coverUrl={coverUrl}
           title={title}
           author={author}
