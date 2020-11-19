@@ -1,13 +1,15 @@
 import styled from 'styled-components/macro'
 
-export default function AddBookForm({ onCreateTodo }) {
+export default function AddBookForm({ onCreateBook }) {
   function handleSubmit(event) {
     event.preventDefault()
     const formElement = event.target
-    const input = formElement.title
-    onCreateTodo(input.value)
+    const inputTitle = formElement.title
+    const inputAuthor = formElement.author
+    const inputDesqription = formElement.description
+    onCreateBook(inputTitle.value, inputAuthor.value, inputDesqription.value)
     formElement.reset()
-    input.focus()
+    inputTitle.focus()
   }
 
   return (

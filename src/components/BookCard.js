@@ -7,7 +7,7 @@ export default BookCard
 BookCard.propTypes = {
   coverUrl: PropTypes.string,
   title: PropTypes.string.isRequired,
-  author: PropTypes.string.isRequired,
+  author: PropTypes.string,
   description: PropTypes.string,
 }
 
