@@ -2,7 +2,6 @@ import { useEffect, useState } from 'react'
 import { v4 as uuidv4 } from 'uuid'
 import styled from 'styled-components'
 
-import saveLocally from './lib/saveLocally'
 import loadLocally from './lib/loadLocally'
 import BookList from './components/BookList'
 import getBooks from './services/getBooks'
@@ -17,23 +16,16 @@ export default function App() {
     getBooks().then((books) => setBooks(books))
   }, [])
 
-  useEffect(() => {
-    saveLocally('books', books)
-  }, [books])
-
   return (
     <StyledApp>
       <h1>Book Owls</h1>
       <BookList listName="Bücherregal" />
       <AddBookForm onCreateBook={addBook} />
-      {books.map(({ title, author, description, isDone, id }, index) => (
+      {books.map(({ title, author, description, id }, index) => (
         <BookCard
-          onDelete={() => deleteBook(index)}
-          onClick={() => toggleBook(index)}
           title={title}
           author={author}
           description={description}
-          isDone={isDone}
           key={id}
         />
       ))}
@@ -41,24 +33,8 @@ export default function App() {
     </StyledApp>
   )
 
-  function deleteBook(index) {
-    setBooks([...books.slice(0, index), ...books.slice(index + 1)])
-  }
-
-  function toggleBook(index) {
-    const book = books[index]
-    setBooks([
-      ...books.slice(0, index),
-      { ...book, isDone: !book.isDone },
-      ...books.slice(index + 1),
-    ])
-  }
-
   function addBook(title, author, description) {
-    setBooks([
-      ...books,
-      { title, author, description, isDone: false, id: uuidv4() },
-    ])
+    setBooks([...books, { title, author, description, id: uuidv4() }])
   }
 }
 

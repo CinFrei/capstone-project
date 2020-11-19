@@ -1,5 +1,7 @@
 import styled from 'styled-components/macro'
 
+import Button from './RectangleButton'
+
 export default function AddBookForm({ onCreateBook }) {
   function handleSubmit(event) {
     event.preventDefault()
@@ -16,25 +18,21 @@ export default function AddBookForm({ onCreateBook }) {
     <FormStyled onSubmit={handleSubmit}>
       <label>
         Titel:
-        <input name="title" type="text" placeholder="Write book title here." />
+        <input name="title" type="text" placeholder="Buchtitel hinzufügen." />
       </label>
       <label>
-        Author:
-        <input
-          name="author"
-          type="text"
-          placeholder="Write book author here."
-        />
+        Autor:
+        <input name="author" type="text" placeholder="Buchautor hinzufügen." />
       </label>
       <label>
-        Description:
+        Beschreibung:
         <input
           name="description"
           type="text"
-          placeholder="Write short book description here."
+          placeholder="Kurze Buchbeschreibung hinzufügen."
         />
       </label>
-      <ButtonStyled>Add Book</ButtonStyled>
+      <Button buttonName="Buch Hinzufügen" />
     </FormStyled>
   )
 }
@@ -53,15 +51,4 @@ const FormStyled = styled.form`
     border: 2px solid var(--light-rose);
     border-radius: 3px;
   }
-`
-
-const ButtonStyled = styled.button`
-  width: 100%;
-  margin-top: 20px;
-  padding: 10px 20px;
-  background: var(--light-rose);
-  color: var(--primary-antrazit);
-  font-size: 1.2em;
-  border: none;
-  border-radius: 3px;
 `
