@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`RectangleButton renders correctly 1`] = `
+.c0 {
+  width: 100%;
+  margin-top: 20px;
+  padding: 10px 20px;
+  background: var(--light-rose);
+  color: var(--primary-antrazit);
+  font-size: 1.2em;
+  font-family: 'Kaushan Script',cursive;
+  border: none;
+  border-radius: 3px;
+}
+
+<button
+  class="c0"
+/>
+`;

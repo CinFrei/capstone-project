@@ -1,0 +1,32 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FloatingActionButton renders correctly 1`] = `
+.c0 {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 10;
+  display: grid;
+  place-items: center;
+  width: 60px;
+  height: 60px;
+  padding: 10px;
+  background-color: var(--light-blue);
+  border: 2px solid var(--light-blue);
+  border-radius: 30px;
+}
+
+.c0 img {
+  width: 100%;
+  margin: 0;
+}
+
+<button
+  class="c0"
+>
+  <img
+    alt=""
+    src="add.svg"
+  />
+</button>
+`;

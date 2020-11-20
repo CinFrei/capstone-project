@@ -1,0 +1,5 @@
+Rectangle Button
+
+```js
+<RectangleButton />
+```

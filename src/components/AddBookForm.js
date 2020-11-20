@@ -6,9 +6,9 @@ export default function AddBookForm({ onCreateBook }) {
   function handleSubmit(event) {
     event.preventDefault()
     const formElement = event.target
-    const inputTitle = formElement.title
-    const inputAuthor = formElement.author
-    const inputDesqription = formElement.description
+    const inputTitle = formElement.elements.title
+    const inputAuthor = formElement.elements.author
+    const inputDesqription = formElement.elements.description
     onCreateBook(inputTitle.value, inputAuthor.value, inputDesqription.value)
     formElement.reset()
     inputTitle.focus()
