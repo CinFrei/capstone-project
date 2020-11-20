@@ -14,6 +14,7 @@ export default createGlobalStyle`
     --accent-color: #ff9a00;
 
     --primary-background-gradient: linear-gradient(0, #ffffff 0%, #f2f2f2 100%);
+    --secondary-background-gradient: linear-gradient(0, rgba(242,242,242,1) 0%, rgba(255,255,255,1) 91%, rgba(255,255,255,0) 100%);
 
     --primary-anthrazit: #4b4b4b;
     --primary-grey: #f2f2f2;
