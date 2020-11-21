@@ -13,32 +13,27 @@ import BookCard from './components/BookCard'
 
 export default function App() {
   const [books, setBooks] = useState(loadLocally('books') ?? [])
-
-  const [addBookFormModal, setAddBookFormModal] = useState(false)
-  function closeAddBookFormModal() {
-    setAddBookFormModal(false)
-  }
-  function openAddBookFormModal() {
-    setAddBookFormModal(true)
-  }
-
   useEffect(() => {
     getBooks().then((books) => setBooks(books))
   }, [])
-
   function addBook(title, author, description) {
     setBooks([...books, { title, author, description, id: uuidv4() }])
+  }
+
+  const [addBookFormModal, setAddBookFormModal] = useState(false)
+  function toggleAddBookFormModal() {
+    setAddBookFormModal(!addBookFormModal)
   }
 
   return (
     <StyledApp>
       <h1>Book Owls</h1>
       <BookList listName="Bücherregal" />
-      <FloatingActionButton onClick={openAddBookFormModal} />
+      <FloatingActionButton onClick={toggleAddBookFormModal} />
       {addBookFormModal && (
         <AddBookForm
           onCreateBook={addBook}
-          onClickDownButton={closeAddBookFormModal}
+          onClickDownButton={toggleAddBookFormModal}
         />
       )}
       {books.map(({ title, author, description, id }, index) => (
