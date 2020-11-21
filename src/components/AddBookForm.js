@@ -1,8 +1,9 @@
 import styled from 'styled-components/macro'
 
 import Button from './RectangleButton'
-import downArrow from '../assets/arrow-down.svg'
+import { ReactComponent as DownArrow } from '../assets/arrow-down.svg'
 
+/** @component */
 export default function AddBookForm({ onCreateBook, onClickDownButton }) {
   function handleSubmit(event) {
     event.preventDefault()
@@ -18,7 +19,7 @@ export default function AddBookForm({ onCreateBook, onClickDownButton }) {
   return (
     <StyledModal>
       <StyledButton onClick={onClickDownButton}>
-        <img src={downArrow} alt="" />
+        <DownArrow />
       </StyledButton>
       <FormStyled onSubmit={handleSubmit}>
         <label>
@@ -66,7 +67,7 @@ const StyledButton = styled.button`
   background-color: transparent;
   justify-self: end;
 
-  img {
+  svg {
     width: 25px;
   }
 `

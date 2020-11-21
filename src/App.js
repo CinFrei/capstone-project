@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { v4 as uuidv4 } from 'uuid'
-import styled from 'styled-components'
+import styled from 'styled-components/macro'
 
 import FloatingActionButton from './components/FloatingActionButton'
 
@@ -14,17 +14,21 @@ import BookCard from './components/BookCard'
 export default function App() {
   const [books, setBooks] = useState(loadLocally('books') ?? [])
 
-  const [addBookFormModal, setaddBookFormModal] = useState(false)
+  const [addBookFormModal, setAddBookFormModal] = useState(false)
   function closeAddBookFormModal() {
-    setaddBookFormModal(false)
+    setAddBookFormModal(false)
   }
   function openAddBookFormModal() {
-    setaddBookFormModal(true)
+    setAddBookFormModal(true)
   }
 
   useEffect(() => {
     getBooks().then((books) => setBooks(books))
   }, [])
+
+  function addBook(title, author, description) {
+    setBooks([...books, { title, author, description, id: uuidv4() }])
+  }
 
   return (
     <StyledApp>
@@ -47,10 +51,6 @@ export default function App() {
       ))}
     </StyledApp>
   )
-
-  function addBook(title, author, description) {
-    setBooks([...books, { title, author, description, id: uuidv4() }])
-  }
 }
 
 const StyledApp = styled.div`

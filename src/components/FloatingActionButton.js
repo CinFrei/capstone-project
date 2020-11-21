@@ -1,7 +1,6 @@
 import styled from 'styled-components/macro'
-//import PropTypes from 'prop-types'
 
-import add from '../assets/add.svg'
+import { ReactComponent as AddIcon } from '../assets/add.svg'
 
 /** @component */
 export default FloatingActionButton
@@ -9,7 +8,7 @@ export default FloatingActionButton
 function FloatingActionButton({ onClick }) {
   return (
     <ButtonStyled onClick={onClick}>
-      <img src={add} alt="" />
+      <AddIcon />
     </ButtonStyled>
   )
 }
@@ -30,7 +29,7 @@ const ButtonStyled = styled.button`
   border: 2px solid var(--light-blue);
   border-radius: 30px;
 
-  img {
+  svg {
     width: 100%;
     margin: 0;
   }
