@@ -1,8 +1,9 @@
 import styled from 'styled-components/macro'
 
 import Button from './RectangleButton'
+import downArrow from '../assets/arrow-down.svg'
 
-export default function AddBookForm({ onCreateBook }) {
+export default function AddBookForm({ onCreateBook, onClickDownButton }) {
   function handleSubmit(event) {
     event.preventDefault()
     const formElement = event.target
@@ -15,27 +16,60 @@ export default function AddBookForm({ onCreateBook }) {
   }
 
   return (
-    <FormStyled onSubmit={handleSubmit}>
-      <label>
-        Titel:
-        <input name="title" type="text" placeholder="Buchtitel hinzufügen." />
-      </label>
-      <label>
-        Autor:
-        <input name="author" type="text" placeholder="Buchautor hinzufügen." />
-      </label>
-      <label>
-        Beschreibung:
-        <input
-          name="description"
-          type="text"
-          placeholder="Kurze Buchbeschreibung hinzufügen."
-        />
-      </label>
-      <Button buttonName="Buch Hinzufügen" />
-    </FormStyled>
+    <StyledModal>
+      <StyledButton onClick={onClickDownButton}>
+        <img src={downArrow} alt="" />
+      </StyledButton>
+      <FormStyled onSubmit={handleSubmit}>
+        <label>
+          Titel:
+          <input name="title" type="text" placeholder="Buchtitel hinzufügen." />
+        </label>
+        <label>
+          Autor:
+          <input
+            name="author"
+            type="text"
+            placeholder="Buchautor hinzufügen."
+          />
+        </label>
+        <label>
+          Beschreibung:
+          <input
+            name="description"
+            type="text"
+            placeholder="Kurze Buchbeschreibung hinzufügen."
+          />
+        </label>
+        <Button buttonName="Buch Hinzufügen" />
+      </FormStyled>
+    </StyledModal>
   )
 }
+
+const StyledModal = styled.div`
+  position: fixed;
+  bottom: 0px;
+  right: 0px;
+  z-index: 10;
+
+  display: grid;
+  place-items: center;
+
+  background: var(--secondary-background-gradient);
+`
+
+const StyledButton = styled.button`
+  width: 80px;
+  height: 20px;
+  border: none;
+  background-color: transparent;
+  justify-self: end;
+
+  img {
+    width: 25px;
+  }
+`
 
 const FormStyled = styled.form`
   margin: 10px 10px 20px 10px;

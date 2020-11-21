@@ -1,12 +1,12 @@
 import AddBookForm from './AddBookForm'
 import user from '@testing-library/user-event'
-import { render } from '@testing-library/react'
+import { getByText, render } from '@testing-library/react'
 
 describe('AddBookForm', () => {
   const onSubmitMock = jest.fn()
 
   it('calls onSubmit with correct data and resets form', () => {
-    const { getByLabelText, getByRole } = render(
+    const { getByLabelText, getByText } = render(
       <AddBookForm onCreateBook={onSubmitMock} />
     )
 
@@ -14,7 +14,7 @@ describe('AddBookForm', () => {
     user.type(getByLabelText('Autor:'), 'Horst Host')
     user.type(getByLabelText('Beschreibung:'), 'Voll Currywurst. Subba Legga!')
 
-    user.click(getByRole('button'))
+    user.click(getByText('Buch Hinzufügen'))
 
     expect(onSubmitMock).toHaveBeenCalledWith(
       'Die 100 besten Currywurst Rezepte',

@@ -2,7 +2,6 @@ import { useEffect, useState } from 'react'
 import { v4 as uuidv4 } from 'uuid'
 import styled from 'styled-components'
 
-import { useModal } from './hooks/useModal'
 import FloatingActionButton from './components/FloatingActionButton'
 
 import loadLocally from './lib/loadLocally'
@@ -13,8 +12,15 @@ import BookList from './components/BookList'
 import BookCard from './components/BookCard'
 
 export default function App() {
-  const { show, RenderModal } = useModal()
   const [books, setBooks] = useState(loadLocally('books') ?? [])
+
+  const [addBookFormModal, setaddBookFormModal] = useState(false)
+  function closeAddBookFormModal() {
+    setaddBookFormModal(false)
+  }
+  function openAddBookFormModal() {
+    setaddBookFormModal(true)
+  }
 
   useEffect(() => {
     getBooks().then((books) => setBooks(books))
@@ -22,23 +28,23 @@ export default function App() {
 
   return (
     <StyledApp>
-      <div>
-        <h1>Book Owls</h1>
-        <BookList listName="Bücherregal" />
-        <FloatingActionButton onClick={show} />
-        <RenderModal>
-          <AddBookForm onCreateBook={addBook} />
-          {books.map(({ title, author, description, id }, index) => (
-            <BookCard
-              title={title}
-              author={author}
-              description={description}
-              key={id}
-            />
-          ))}
-        </RenderModal>
-      </div>
-      <div id="modal-root" />
+      <h1>Book Owls</h1>
+      <BookList listName="Bücherregal" />
+      <FloatingActionButton onClick={openAddBookFormModal} />
+      {addBookFormModal && (
+        <AddBookForm
+          onCreateBook={addBook}
+          onClickDownButton={closeAddBookFormModal}
+        />
+      )}
+      {books.map(({ title, author, description, id }, index) => (
+        <BookCard
+          title={title}
+          author={author}
+          description={description}
+          key={id}
+        />
+      ))}
     </StyledApp>
   )
 
