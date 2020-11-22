@@ -9,12 +9,21 @@ export default BookList
 
 BookList.propTypes = {
   listName: PropTypes.string,
+  newBooks: PropTypes.array,
 }
 
-function BookList({ listName, id }) {
+function BookList({ newBooks, listName }) {
   return (
     <BookListWrapper>
       <h2>{listName}</h2>
+      {newBooks.map(({ title, author, description, id }, index) => (
+        <BookCard
+          title={title}
+          author={author}
+          description={description}
+          key={id}
+        />
+      ))}
       {data.map(({ coverUrl, title, author, description, id }) => (
         <BookCard
           key={id}
