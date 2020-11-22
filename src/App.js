@@ -31,7 +31,7 @@ export default function App() {
       <BookList newBooks={books} listName="Bücherregal" />
       <FloatingActionButton onClick={onButtonClick} />
       {addBookFormModal && (
-        <AddBookForm createBook={addBook} onClickDownButton={onButtonClick} />
+        <AddBookForm createBook={addBook} onButtonClick={onButtonClick} />
       )}
       {books.map(({ title, author, description, id }, index) => (
         <BookCard
