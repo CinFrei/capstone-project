@@ -10,8 +10,8 @@ export default function AddBookForm({ onCreateBook, onClickDownButton }) {
     const formElement = event.target
     const inputTitle = formElement.elements.title
     const inputAuthor = formElement.elements.author
-    const inputDesqription = formElement.elements.description
-    onCreateBook(inputTitle.value, inputAuthor.value, inputDesqription.value)
+    const inputDescription = formElement.elements.description
+    onCreateBook(inputTitle.value, inputAuthor.value, inputDescription.value)
     formElement.reset()
     inputTitle.focus()
   }
