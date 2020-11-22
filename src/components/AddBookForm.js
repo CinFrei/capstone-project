@@ -4,7 +4,7 @@ import Button from './RectangleButton'
 import { ReactComponent as DownArrow } from '../assets/arrow-down.svg'
 
 /** @component */
-export default function AddBookForm({ onCreateBook, onClickDownButton }) {
+export default function AddBookForm({ onCreateBook, onButtonClick }) {
   function handleSubmit(event) {
     event.preventDefault()
     const formElement = event.target
@@ -18,7 +18,7 @@ export default function AddBookForm({ onCreateBook, onClickDownButton }) {
 
   return (
     <StyledModal>
-      <StyledButton onClick={onClickDownButton}>
+      <StyledButton onClick={onButtonClick}>
         <DownArrow />
       </StyledButton>
       <FormStyled onSubmit={handleSubmit}>

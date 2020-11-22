@@ -21,7 +21,7 @@ export default function App() {
   }
 
   const [addBookFormModal, setAddBookFormModal] = useState(false)
-  function toggleAddBookFormModal() {
+  function onButtonClick() {
     setAddBookFormModal(!addBookFormModal)
   }
 
@@ -29,12 +29,9 @@ export default function App() {
     <StyledApp>
       <h1>Book Owls</h1>
       <BookList newBooks={books} listName="Bücherregal" />
-      <FloatingActionButton onClick={toggleAddBookFormModal} />
+      <FloatingActionButton onClick={onButtonClick} />
       {addBookFormModal && (
-        <AddBookForm
-          onCreateBook={addBook}
-          onClickDownButton={toggleAddBookFormModal}
-        />
+        <AddBookForm onCreateBook={addBook} onClickDownButton={onButtonClick} />
       )}
       {books.map(({ title, author, description, id }, index) => (
         <BookCard
