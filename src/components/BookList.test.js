@@ -18,5 +18,4 @@ describe('BookList', () => {
     )
     expect(container.firstChild).toMatchSnapshot()
   })
-  //...
 })

@@ -4,14 +4,14 @@ import Button from './RectangleButton'
 import { ReactComponent as DownArrow } from '../assets/arrow-down.svg'
 
 /** @component */
-export default function AddBookForm({ onCreateBook, onButtonClick }) {
+export default function AddBookForm({ createBook, onButtonClick }) {
   function handleSubmit(event) {
     event.preventDefault()
     const formElement = event.target
     const inputTitle = formElement.elements.title
     const inputAuthor = formElement.elements.author
     const inputDescription = formElement.elements.description
-    onCreateBook(inputTitle.value, inputAuthor.value, inputDescription.value)
+    createBook(inputTitle.value, inputAuthor.value, inputDescription.value)
     formElement.reset()
     inputTitle.focus()
   }
@@ -73,7 +73,7 @@ const StyledButton = styled.button`
 `
 
 const FormStyled = styled.form`
-  margin: 10px 10px 20px 10px;
+  margin: 10px 10px 20px;
   padding: 10px;
   border: 2px solid var(--dark-rose);
   border-radius: 3px;

@@ -6,5 +6,4 @@ describe('RectangleButton', () => {
     const { container } = render(<RectangleButton />)
     expect(container.firstChild).toMatchSnapshot()
   })
-  //...
 })

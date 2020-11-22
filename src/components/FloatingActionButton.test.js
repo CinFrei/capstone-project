@@ -6,5 +6,4 @@ describe('FloatingActionButton', () => {
     const { container } = render(<FloatingActionButton />)
     expect(container.firstChild).toMatchSnapshot()
   })
-  //...
 })

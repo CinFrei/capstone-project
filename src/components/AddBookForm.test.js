@@ -7,7 +7,7 @@ describe('AddBookForm', () => {
 
   it('calls onSubmit with correct data and resets form', () => {
     const { getByLabelText, getByText } = render(
-      <AddBookForm onCreateBook={onSubmitMock} />
+      <AddBookForm createBook={onSubmitMock} />
     )
 
     user.type(getByLabelText('Titel:'), 'Die 100 besten Currywurst Rezepte')
@@ -26,5 +26,4 @@ describe('AddBookForm', () => {
     expect(getByLabelText('Autor:')).toHaveValue('')
     expect(getByLabelText('Beschreibung:')).toHaveValue('')
   })
-  //...
 })
