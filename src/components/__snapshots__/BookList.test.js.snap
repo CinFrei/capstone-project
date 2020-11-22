@@ -50,6 +50,27 @@ exports[`BookList renders correctly 1`] = `
   >
     <img
       alt=""
+    />
+    <div>
+      <h3>
+        Pauls Rosa Welt
+      </h3>
+      <span>
+        von
+        <h4>
+          Paulchen Panter
+        </h4>
+      </span>
+      <p>
+        Rosa ist die Beste Farbe
+      </p>
+    </div>
+  </div>
+  <div
+    class="c1"
+  >
+    <img
+      alt=""
       src="https://books.google.de/books/content?id=8GWIBguHHVQC&printsec=frontcover&img=1&zoom=5&edge=curl&imgtk=AFLRE73YwZT_dnPkne8qiPiU9yJIDrEOsm2_kyUvaNqumPcVbLozARgLWE5Ca7DaY4aR0dCZLx4zUNheZP8mXEC2bl1u_pv37Dk-61YPSd7s7budgbhKWGPyn4tR4RTWHtf7mDHbttCI"
     />
     <div>
