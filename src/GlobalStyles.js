@@ -32,6 +32,12 @@ export default createGlobalStyle`
     font-family: 'Kaushan Script', cursive;
   }
 
+  h1 {
+    margin: 0px;
+    color: var(--dark-blue);
+    text-align: center;
+  }
+
   input, textarea, button {
     font-size: 1em;
   }

@@ -50,10 +50,4 @@ export default function App() {
 
 const StyledApp = styled.div`
   position: relative;
-
-  h1 {
-    margin: 0px;
-    color: var(--dark-blue);
-    text-align: center;
-  }
 `
