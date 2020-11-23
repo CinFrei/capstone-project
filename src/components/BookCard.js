@@ -14,18 +14,23 @@ BookCard.propTypes = {
   description: PropTypes.string,
 }
 
-function BookCard({ coverUrl, title, author, description, id }) {
+function BookCard({ coverUrl, title, author, description, onDelete, id }) {
   return (
     <BookCardWrapper>
-      <img src={coverUrl} alt="" />
+      <StyledCover src={coverUrl} alt="" />
       <div>
         <h3>{title}</h3>
         <span>
           von<h4>{author}</h4>
         </span>
         <p>{description}</p>
-        <CircleButton buttonIcon={<DeleteIcon />}></CircleButton>
       </div>
+      <CircleButton
+        onClick={onDelete}
+        buttonIcon={<DeleteIcon />}
+        gridColumn="2 / -1"
+        gridPosition="end"
+      ></CircleButton>
     </BookCardWrapper>
   )
 }
@@ -35,6 +40,7 @@ const BookCardWrapper = styled.div`
   min-width: 0;
   display: grid;
   grid-template-columns: 40% 60%;
+  grid-template-rows: 1fr 45px;
   grid-gap: 10px;
   padding: 10px;
   background: var(--primary-white);
@@ -43,7 +49,8 @@ const BookCardWrapper = styled.div`
   border-radius: 3px;
 
   h3 {
-    margin: 10px;
+    margin: 0;
+    color: var(--dark-blue);
   }
 
   h4 {
@@ -51,7 +58,17 @@ const BookCardWrapper = styled.div`
     margin: 10px;
   }
 
-  img {
-    width: 100%;
+  span {
+    margin: 0 0 0 3.5px;
   }
+
+  p {
+    margin: 15px 5px 0 3px;
+  }
+`
+
+const StyledCover = styled.img`
+  grid-column: 1 / span 1;
+  grid-row: 1 / span 2;
+  justify-self: stretch;
 `
