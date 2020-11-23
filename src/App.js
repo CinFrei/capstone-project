@@ -2,14 +2,13 @@ import { useEffect, useState } from 'react'
 import { v4 as uuidv4 } from 'uuid'
 import styled from 'styled-components/macro'
 
-import FloatingActionButton from './components/FloatingActionButton'
-
 import loadLocally from './lib/loadLocally'
-import AddBookForm from './components/AddBookForm'
 import getBooks from './services/getBooks'
 
 import BookList from './components/BookList'
 import BookCard from './components/BookCard'
+import AddBookForm from './components/AddBookForm'
+import FloatingActionButton from './components/FloatingActionButton'
 
 export default function App() {
   const [books, setBooks] = useState(loadLocally('books') ?? [])

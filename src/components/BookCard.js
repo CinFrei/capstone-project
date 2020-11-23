@@ -1,6 +1,9 @@
 import PropTypes from 'prop-types'
 import styled from 'styled-components/macro'
 
+import { ReactComponent as DeleteIcon } from '../assets/delete-icon.svg'
+import CircleButton from './CircleButton'
+
 /** @component */
 export default BookCard
 
@@ -21,6 +24,7 @@ function BookCard({ coverUrl, title, author, description, id }) {
           von<h4>{author}</h4>
         </span>
         <p>{description}</p>
+        <CircleButton buttonIcon={<DeleteIcon />}></CircleButton>
       </div>
     </BookCardWrapper>
   )
