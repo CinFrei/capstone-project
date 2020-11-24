@@ -33,4 +33,7 @@ const ButtonStyled = styled.button`
     width: 100%;
     margin: 0;
   }
+  svg .st0 {
+    fill: var(--primary-anthrazit);
+  }
 `
