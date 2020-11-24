@@ -30,9 +30,7 @@ function BookCard({ coverUrl, title, author, description, onDelete, id }) {
         buttonIcon={<DeleteIcon />}
         gridColumn="2 / -1"
         gridPosition="end"
-      >
-        &times;
-      </CircleButton>
+      />
     </BookCardWrapper>
   )
 }

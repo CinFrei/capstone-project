@@ -7,7 +7,6 @@ import loadLocally from './lib/loadLocally'
 import getBooks from './services/getBooks'
 
 import BookList from './components/BookList'
-import BookCard from './components/BookCard'
 import AddBookForm from './components/AddBookForm'
 import FloatingActionButton from './components/FloatingActionButton'
 
@@ -44,15 +43,6 @@ export default function App() {
           onButtonClick={toggleAddBookFormModal}
         />
       )}
-      {/* {books.map(({ title, author, description, id }) => (
-        <BookCard
-          onDelete={() => deleteBook(id)}
-          title={title}
-          author={author}
-          description={description}
-          key={id}
-        />
-      ))} */}
     </StyledApp>
   )
 }
