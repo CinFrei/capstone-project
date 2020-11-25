@@ -1,7 +1,6 @@
 import PropTypes from 'prop-types'
 import styled from 'styled-components/macro'
 
-import data from '../data/book-data.json'
 import BookCard from './BookCard'
 
 /** @component */
@@ -12,25 +11,17 @@ BookList.propTypes = {
   newBooks: PropTypes.array,
 }
 
-function BookList({ newBooks, listName }) {
+function BookList({ newBooks, listName, onDelete }) {
   return (
     <BookListWrapper>
       <h2>{listName}</h2>
       {newBooks.map(({ title, author, description, id }, index) => (
         <BookCard
+          onDelete={() => onDelete(id)}
           title={title}
           author={author}
           description={description}
           key={id}
-        />
-      ))}
-      {data.map(({ coverUrl, title, author, description, id }) => (
-        <BookCard
-          key={id}
-          coverUrl={coverUrl}
-          title={title}
-          author={author}
-          description={description}
         />
       ))}
     </BookListWrapper>

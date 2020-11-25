@@ -21,6 +21,10 @@ exports[`FloatingActionButton renders correctly 1`] = `
   margin: 0;
 }
 
+.c0 svg .st0 {
+  fill: var(--primary-anthrazit);
+}
+
 <button
   class="c0"
 >

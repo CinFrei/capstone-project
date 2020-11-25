@@ -70,6 +70,9 @@ const StyledButton = styled.button`
   svg {
     width: 25px;
   }
+  svg .st0 {
+    fill: var(--primary-anthrazit);
+  }
 `
 
 const FormStyled = styled.form`

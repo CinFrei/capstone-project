@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CircleButton renders correctly 1`] = `
+.c0 {
+  width: 45px;
+  height: 45px;
+  margin-right: 8px;
+  padding: 12px;
+  background: var(--light-rose);
+  border: none;
+  border-radius: 45px;
+}
+
+.c0 svg .st0 {
+  fill: var(--accent-color);
+}
+
+<button
+  class="c0"
+/>
+`;

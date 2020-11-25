@@ -1,11 +1,28 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`BookCard renders correctly 1`] = `
+.c2 {
+  width: 45px;
+  height: 45px;
+  margin-right: 8px;
+  padding: 12px;
+  background: var(--light-rose);
+  border: none;
+  border-radius: 45px;
+  grid-column: 2 / -1;
+  justify-self: end;
+}
+
+.c2 svg .st0 {
+  fill: var(--accent-color);
+}
+
 .c0 {
   position: relative;
   min-width: 0;
   display: grid;
   grid-template-columns: 40% 60%;
+  grid-template-rows: 1fr 45px;
   grid-gap: 10px;
   padding: 10px;
   background: var(--primary-white);
@@ -15,7 +32,8 @@ exports[`BookCard renders correctly 1`] = `
 }
 
 .c0 h3 {
-  margin: 10px;
+  margin: 0;
+  color: var(--dark-blue);
 }
 
 .c0 h4 {
@@ -23,8 +41,18 @@ exports[`BookCard renders correctly 1`] = `
   margin: 10px;
 }
 
-.c0 img {
-  width: 100%;
+.c0 span {
+  margin: 0 0 0 3.5px;
+}
+
+.c0 p {
+  margin: 15px 5px 0 3px;
+}
+
+.c1 {
+  grid-column: 1 / span 1;
+  grid-row: 1 / span 2;
+  justify-self: stretch;
 }
 
 <div
@@ -32,6 +60,7 @@ exports[`BookCard renders correctly 1`] = `
 >
   <img
     alt=""
+    class="c1"
     src="blub"
   />
   <div>
@@ -48,5 +77,12 @@ exports[`BookCard renders correctly 1`] = `
       Buchbeschreibung
     </p>
   </div>
+  <button
+    class="c2"
+  >
+    <svg>
+      delete-icon.svg
+    </svg>
+  </button>
 </div>
 `;
