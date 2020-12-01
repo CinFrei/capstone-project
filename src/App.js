@@ -13,8 +13,8 @@ import FloatingActionButton from './components/FloatingActionButton'
 
 export default function App() {
   const [books, setBooks] = useState(loadLocally('books') ?? [])
-  function addBook(title, author, description) {
-    setBooks([{ title, author, description, id: uuidv4() }, ...books])
+  function addBook(cover, title, author, description) {
+    setBooks([{ cover, title, author, description, id: uuidv4() }, ...books])
   }
   function deleteBook(id) {
     setBooks(books.filter((book) => id !== book.id))
@@ -47,10 +47,11 @@ export default function App() {
     event.preventDefault()
     axios
       .get(
-        `https://www.googleapis.com/books/v1/volumes?q=${googleBook}&key=${process.env.REACT_APP_API_KEY}&maxResults=10`
+        `https://www.googleapis.com/books/v1/volumes?q=${googleBook}&key=${process.env.REACT_APP_API_KEY}&maxResults=2`
       )
       .then((data) => {
         setResult(data.data.items)
+        console.log(data)
       })
   }
 
@@ -61,6 +62,7 @@ export default function App() {
       <FloatingActionButton onClick={toggleAddBookFormModal} />
       {addBookFormModal && (
         <AddBookForm
+          result={result}
           createBook={addBook}
           onButtonClick={toggleAddBookFormModal}
         />
@@ -78,17 +80,6 @@ export default function App() {
           </div>
           <button type="submit">Search</button>
         </form>
-
-        {result.map((googleBook) => (
-          <div>
-            <img
-              src={googleBook.volumeInfo.imageLinks.thumbnail}
-              alt={googleBook.title}
-            />
-            <h2>{googleBook.title}</h2>
-            <p>{googleBook.title}</p>
-          </div>
-        ))}
       </div>
     </StyledApp>
   )

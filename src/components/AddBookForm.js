@@ -1,10 +1,11 @@
 import styled from 'styled-components/macro'
 
+import BookCard from './BookCard'
 import Button from './RectangleButton'
 import { ReactComponent as DownArrow } from '../assets/arrow-down.svg'
 
 /** @component */
-export default function AddBookForm({ createBook, onButtonClick }) {
+export default function AddBookForm({ result, createBook, onButtonClick }) {
   function handleSubmit(event) {
     event.preventDefault()
     const formElement = event.target
@@ -23,7 +24,7 @@ export default function AddBookForm({ createBook, onButtonClick }) {
       </StyledButton>
       <FormStyled onSubmit={handleSubmit}>
         <label>
-          Titel:
+          Suche:
           <input name="title" type="text" placeholder="Buchtitel hinzufügen." />
         </label>
         <label>
@@ -42,6 +43,14 @@ export default function AddBookForm({ createBook, onButtonClick }) {
             placeholder="Kurze Buchbeschreibung hinzufügen."
           />
         </label>
+        {result.map((googleBook) => (
+          <BookCard
+            cover={googleBook.volumeInfo.imageLinks.thumbnail}
+            title={googleBook.volumeInfo.title}
+            author={googleBook.volumeInfo.authors}
+            description={googleBook.saleInfo.country}
+          ></BookCard>
+        ))}
         <Button buttonName="Buch Hinzufügen" />
       </FormStyled>
     </StyledModal>

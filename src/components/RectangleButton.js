@@ -14,8 +14,6 @@ function RectangleButton({ onClick, buttonName }) {
 
 const ButtonStyled = styled.button`
   width: 100%;
-  margin-top: 20px;
-  padding: 10px 20px;
   background: var(--light-rose);
   color: var(--primary-antrazit);
   font-size: 1.2em;

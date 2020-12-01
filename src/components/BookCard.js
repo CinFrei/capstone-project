@@ -9,15 +9,15 @@ export default BookCard
 
 BookCard.propTypes = {
   coverUrl: PropTypes.string,
-  title: PropTypes.string.isRequired,
-  author: PropTypes.string.isRequired,
+  title: PropTypes.string,
+  author: PropTypes.string,
   description: PropTypes.string,
 }
 
-function BookCard({ coverUrl, title, author, description, onDelete, id }) {
+function BookCard({ cover, title, author, description, onDelete, id }) {
   return (
     <BookCardWrapper>
-      <StyledCover src={coverUrl} alt="" />
+      <StyledCover src={cover} alt={title} />
       <div>
         <h3>{title}</h3>
         <span>
