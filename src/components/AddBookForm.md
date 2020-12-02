@@ -1,3 +1,0 @@
-```js static
-<AddBookForm></AddBookForm>
-```

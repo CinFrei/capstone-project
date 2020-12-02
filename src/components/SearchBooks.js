@@ -1,5 +1,3 @@
-import { useEffect, useState } from 'react'
-import axios from 'axios'
 import styled from 'styled-components/macro'
 
 import BookCard from './BookCard'
@@ -8,29 +6,12 @@ import { ReactComponent as DownArrow } from '../assets/arrow-down.svg'
 
 /** @component */
 export default function SearchBooks({
-  setResult,
   results,
-  onButtonClick,
   addGoogleBook,
+  handleSubmit,
+  handleChange,
+  onButtonClick,
 }) {
-  const [googleSearch, setGoogleSearch] = useState(' ')
-
-  function handleChange(event) {
-    const googleSearch = event.target.value
-    setGoogleSearch(googleSearch)
-  }
-
-  function handleSubmit(event) {
-    event.preventDefault()
-    axios
-      .get(
-        `https://www.googleapis.com/books/v1/volumes?q=${googleSearch}&key=${process.env.REACT_APP_API_KEY}&maxResults=2`
-      )
-      .then((data) => {
-        setResult(data.data.items)
-      })
-  }
-
   return (
     <StyledModal>
       <StyledButton onClick={onButtonClick}>
