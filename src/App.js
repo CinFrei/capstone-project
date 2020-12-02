@@ -1,4 +1,3 @@
-import axios from 'axios'
 import { useEffect, useState } from 'react'
 import { v4 as uuidv4 } from 'uuid'
 import styled from 'styled-components/macro'
@@ -8,7 +7,7 @@ import loadLocally from './lib/loadLocally'
 import getBooks from './services/getBooks'
 
 import BookList from './components/BookList'
-import AddBookForm from './components/AddBookForm'
+import SearchBooks from './components/SearchBooks'
 import FloatingActionButton from './components/FloatingActionButton'
 
 export default function App() {
@@ -20,9 +19,9 @@ export default function App() {
     setBooks(books.filter((book) => id !== book.id))
   }
 
-  const [addBookFormModal, setAddBookFormModal] = useState(false)
-  function toggleAddBookFormModal() {
-    setAddBookFormModal(!addBookFormModal)
+  const [searchBooksModal, setSearchBooksModal] = useState(false)
+  function toggleSearchBooksModal() {
+    setSearchBooksModal(!searchBooksModal)
   }
 
   useEffect(() => {
@@ -33,54 +32,43 @@ export default function App() {
     saveLocally('books', books)
   }, [books])
 
-  /** abhier geht das tut los */
+  const [results, setResult] = useState([])
+  const [selectedBooks, setSelectedBooks] = useState([])
 
-  const [googleBook, setGoogleBook] = useState(' ')
-  const [result, setResult] = useState([])
-
-  function handleChange(event) {
-    const googleBook = event.target.value
-    setGoogleBook(googleBook)
+  function addGoogleBook(id) {
+    const isIncluded = selectedBooks.find((book) => id === book.id)
+    if (!isIncluded) {
+      const newBook = results.filter((book) => id === book.id)[0]
+      setSelectedBooks([...selectedBooks, newBook])
+    }
   }
 
-  function handleSubmit(event) {
-    event.preventDefault()
-    axios
-      .get(
-        `https://www.googleapis.com/books/v1/volumes?q=${googleBook}&key=${process.env.REACT_APP_API_KEY}&maxResults=2`
-      )
-      .then((data) => {
-        setResult(data.data.items)
-        console.log(data)
-      })
-  }
+  console.log(selectedBooks)
 
   return (
     <StyledApp>
       <h1>Book Owls</h1>
-      <BookList newBooks={books} listName="Bücherregal" onDelete={deleteBook} />
-      <FloatingActionButton onClick={toggleAddBookFormModal} />
-      {addBookFormModal && (
+      <BookList
+        newBooks={selectedBooks}
+        listName="Bücherregal"
+        onDelete={deleteBook}
+      />
+      <FloatingActionButton onClick={toggleSearchBooksModal} />
+      {/* {addBookFormModal && (
         <AddBookForm
-          result={result}
+          results={results}
           createBook={addBook}
           onButtonClick={toggleAddBookFormModal}
         />
+      )} */}
+      {searchBooksModal && (
+        <SearchBooks
+          setResult={setResult}
+          results={results}
+          addGoogleBook={addGoogleBook}
+          onButtonClick={toggleSearchBooksModal}
+        />
       )}
-      <div>
-        <h6>Hier passiert die magie Google Books</h6>
-        <form onSubmit={handleSubmit}>
-          <div>
-            <input
-              type="text"
-              onChange={handleChange}
-              placeholder="Search for Books"
-              autoComplete="off"
-            />
-          </div>
-          <button type="submit">Search</button>
-        </form>
-      </div>
     </StyledApp>
   )
 }

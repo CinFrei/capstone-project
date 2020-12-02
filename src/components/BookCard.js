@@ -1,8 +1,8 @@
 import PropTypes from 'prop-types'
 import styled from 'styled-components/macro'
 
-import { ReactComponent as DeleteIcon } from '../assets/delete-icon.svg'
-import CircleButton from './CircleButton'
+/* import { ReactComponent as AddIcon } from '../assets/add-book.svg' */
+import RectangleButton from './RectangleButton'
 
 /** @component */
 export default BookCard
@@ -10,11 +10,11 @@ export default BookCard
 BookCard.propTypes = {
   coverUrl: PropTypes.string,
   title: PropTypes.string,
-  author: PropTypes.string,
+  author: PropTypes.array,
   description: PropTypes.string,
 }
 
-function BookCard({ cover, title, author, description, onDelete, id }) {
+function BookCard({ cover, title, author, description, handleClick, id }) {
   return (
     <BookCardWrapper>
       <StyledCover src={cover} alt={title} />
@@ -25,9 +25,9 @@ function BookCard({ cover, title, author, description, onDelete, id }) {
         </span>
         <p>{description}</p>
       </div>
-      <CircleButton
-        onClick={onDelete}
-        buttonIcon={<DeleteIcon />}
+      <RectangleButton
+        onClick={handleClick}
+        buttonName="Buch Hinzufügen"
         gridColumn="2 / -1"
         gridPosition="end"
       />
@@ -35,7 +35,7 @@ function BookCard({ cover, title, author, description, onDelete, id }) {
   )
 }
 
-const BookCardWrapper = styled.div`
+const BookCardWrapper = styled.li`
   position: relative;
   min-width: 0;
   display: grid;

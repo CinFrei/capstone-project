@@ -12,16 +12,17 @@ BookList.propTypes = {
 }
 
 function BookList({ newBooks, listName, onDelete }) {
+  console.log(newBooks)
+
   return (
     <BookListWrapper>
       <h2>{listName}</h2>
-      {newBooks.map(({ title, author, description, id }, index) => (
+      {newBooks.map((newBook) => (
         <BookCard
-          onDelete={() => onDelete(id)}
-          title={title}
-          author={author}
-          description={description}
-          key={id}
+          cover={newBook.volumeInfo.imageLinks.thumbnail}
+          title={newBook.volumeInfo.title}
+          author={newBook.volumeInfo.authors}
+          description={newBook.saleInfo.country}
         />
       ))}
     </BookListWrapper>
