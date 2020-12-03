@@ -27,6 +27,7 @@ export default function SearchBooks({
             autoComplete="off"
           />
         </label>
+
         <RectangleButton type="submit" buttonName="Suche Starten" />
         <ul>
           {results.map((googleBook) => (
@@ -36,8 +37,9 @@ export default function SearchBooks({
               title={googleBook.volumeInfo.title}
               author={googleBook.volumeInfo.authors}
               description={googleBook.saleInfo.country}
-              handleClick={() => addGoogleBook(googleBook.id)}
-            ></BookCard>
+              onCardBtnClick={() => addGoogleBook(googleBook.id)}
+              buttonName="Buch hinzufügen."
+            />
           ))}
         </ul>
       </FormStyled>

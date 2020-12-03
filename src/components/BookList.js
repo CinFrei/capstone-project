@@ -23,6 +23,8 @@ function BookList({ newBooks, listName, onDelete }) {
           title={newBook.volumeInfo.title}
           author={newBook.volumeInfo.authors}
           description={newBook.saleInfo.country}
+          onCardBtnClick={onDelete}
+          buttonName="Buch entfernen."
         />
       ))}
     </BookListWrapper>

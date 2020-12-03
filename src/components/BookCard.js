@@ -1,7 +1,6 @@
 import PropTypes from 'prop-types'
 import styled from 'styled-components/macro'
 
-/* import { ReactComponent as AddIcon } from '../assets/add-book.svg' */
 import RectangleButton from './RectangleButton'
 
 /** @component */
@@ -14,7 +13,14 @@ BookCard.propTypes = {
   description: PropTypes.string,
 }
 
-function BookCard({ cover, title, author, description, handleClick, id }) {
+function BookCard({
+  cover,
+  title,
+  author,
+  description,
+  onCardBtnClick,
+  buttonName,
+}) {
   return (
     <BookCardWrapper>
       <StyledCover src={cover} alt={title} />
@@ -26,11 +32,11 @@ function BookCard({ cover, title, author, description, handleClick, id }) {
         <p>{description}</p>
       </div>
       <RectangleButton
-        onClick={handleClick}
-        buttonName="Buch Hinzufügen"
+        onClick={onCardBtnClick}
+        buttonName={buttonName}
         gridColumn="2 / -1"
         gridPosition="end"
-      />
+      ></RectangleButton>
     </BookCardWrapper>
   )
 }
