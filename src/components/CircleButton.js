@@ -9,18 +9,18 @@ CircleButton.propTypes = {
 }
 
 function CircleButton({
-  onClick,
   buttonIcon,
   gridColumn,
   gridPosition,
   gridRow,
+  onClick,
 }) {
   return (
     <ButtonStyled
-      onClick={onClick}
       gridColumn={gridColumn}
-      gridRow={gridRow}
       gridPosition={gridPosition}
+      gridRow={gridRow}
+      onClick={onClick}
     >
       {buttonIcon}
     </ButtonStyled>
@@ -28,16 +28,16 @@ function CircleButton({
 }
 
 const ButtonStyled = styled.button`
-  width: 45px;
-  height: 45px;
-  margin-right: 8px;
-  padding: 12px;
   background: var(--light-rose);
-  border: none;
   border-radius: 45px;
+  border: none;
   grid-column: ${(props) => props.gridColumn};
   grid-row: ${(props) => props.gridRow};
+  height: 45px;
   justify-self: ${(props) => props.gridPosition};
+  margin-right: 8px;
+  padding: 12px;
+  width: 45px;
 
   svg .st0 {
     fill: var(--accent-color);

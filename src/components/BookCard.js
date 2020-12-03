@@ -1,26 +1,18 @@
 import PropTypes from 'prop-types'
-import styled from 'styled-components/macro'
-
 import RectangleButton from './RectangleButton'
+import styled from 'styled-components/macro'
 
 /** @component */
 export default BookCard
 
 BookCard.propTypes = {
-  coverUrl: PropTypes.string,
-  title: PropTypes.string,
   author: PropTypes.array,
-  description: PropTypes.string,
+  buttonName: PropTypes.string,
+  cover: PropTypes.string,
+  title: PropTypes.string,
 }
 
-function BookCard({
-  cover,
-  title,
-  author,
-  description,
-  onCardBtnClick,
-  buttonName,
-}) {
+function BookCard({ cover, title, author, onCardBtnClick, buttonName }) {
   return (
     <BookCardWrapper>
       <StyledCover src={cover} alt={title} />
@@ -29,34 +21,33 @@ function BookCard({
         <span>
           von<h4>{author}</h4>
         </span>
-        <p>{description}</p>
       </div>
       <RectangleButton
-        onClick={onCardBtnClick}
         buttonName={buttonName}
         gridColumn="2 / -1"
         gridPosition="end"
+        onClick={onCardBtnClick}
       ></RectangleButton>
     </BookCardWrapper>
   )
 }
 
 const BookCardWrapper = styled.li`
-  position: relative;
-  min-width: 0;
+  background: var(--primary-background-gradient);
+  background: var(--primary-white);
+  border-radius: 3px;
+  border: 2px solid var(--dark-blue);
   display: grid;
+  grid-gap: 10px;
   grid-template-columns: 40% 60%;
   grid-template-rows: 1fr 45px;
-  grid-gap: 10px;
+  min-width: 0;
   padding: 10px;
-  background: var(--primary-white);
-  background: var(--primary-background-gradient);
-  border: 2px solid var(--dark-blue);
-  border-radius: 3px;
+  position: relative;
 
   h3 {
-    margin: 0;
     color: var(--dark-blue);
+    margin: 0;
   }
 
   h4 {

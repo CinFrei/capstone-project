@@ -1,12 +1,13 @@
 import { useState, useEffect } from 'react'
 import axios from 'axios'
-import saveLocally from '../lib/saveLocally'
 import loadLocally from '../lib/loadLocally'
+import saveLocally from '../lib/saveLocally'
 
 export default function useBookData() {
-  const [googleSearch, setGoogleSearch] = useState(' ')
+  const [searchBooks, setSearchBooks] = useState(' ')
   const [results, setResult] = useState([])
   const [selectedBooks, setSelectedBooks] = useState(loadLocally('books') ?? [])
+  const [searchBooksModal, setSearchBooksModal] = useState(false)
 
   useEffect(() => {
     getSelectedBooks().then((books) => setSelectedBooks(books))
@@ -16,27 +17,11 @@ export default function useBookData() {
     saveLocally('books', selectedBooks)
   }, [selectedBooks])
 
-  function handleChange(event) {
-    const googleSearch = event.target.value
-    setGoogleSearch(googleSearch)
-  }
-
-  function handleSubmit(event) {
-    event.preventDefault()
-    axios
-      .get(
-        `https://www.googleapis.com/books/v1/volumes?q=${googleSearch}&key=${process.env.REACT_APP_API_KEY}&maxResults=2`
-      )
-      .then((data) => {
-        setResult(data.data.items)
-      })
-  }
-
-  function addGoogleBook(id) {
+  function addBook(id) {
     const isIncluded = selectedBooks.find((book) => id === book.id)
     if (!isIncluded) {
       const newBook = results.filter((book) => id === book.id)[0]
-      setSelectedBooks([...selectedBooks, newBook])
+      setSelectedBooks([newBook, ...selectedBooks])
     }
   }
 
@@ -44,24 +29,40 @@ export default function useBookData() {
     setSelectedBooks(selectedBooks.filter((book) => id !== book.id))
   }
 
-  const [searchBooksModal, setSearchBooksModal] = useState(false)
+  async function getSelectedBooks() {
+    const res = await fetch('/books')
+    return await res.json()
+  }
+
+  function handleChange(event) {
+    const searchField = event.target.value
+    setSearchBooks(searchField)
+  }
+
+  function handleSubmit(event) {
+    event.preventDefault()
+    axios
+      .get(
+        `https://www.googleapis.com/books/v1/volumes?q=${searchBooks}&key=${process.env.REACT_APP_API_KEY}&maxResults=2`
+      )
+      .then((data) => {
+        setResult(data.data.items)
+      })
+  }
+
   function toggleSearchBooksModal() {
     setSearchBooksModal(!searchBooksModal)
   }
 
-  function getSelectedBooks() {
-    return fetch('/books').then((res) => res.json())
-  }
-
   return {
-    addGoogleBook,
-    handleChange,
+    addBook,
     deleteBook,
+    handleChange,
     handleSubmit,
-    toggleSearchBooksModal,
-    selectedBooks,
-    searchBooksModal,
-    setResult,
     results,
+    searchBooksModal,
+    selectedBooks,
+    setResult,
+    toggleSearchBooksModal,
   }
 }

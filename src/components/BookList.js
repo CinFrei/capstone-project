@@ -1,7 +1,6 @@
+import BookCard from './BookCard'
 import PropTypes from 'prop-types'
 import styled from 'styled-components/macro'
-
-import BookCard from './BookCard'
 
 /** @component */
 export default BookList
@@ -11,7 +10,7 @@ BookList.propTypes = {
   newBooks: PropTypes.array,
 }
 
-function BookList({ newBooks, listName, onDelete }) {
+function BookList({ newBooks, listName, deleteBook }) {
   console.log(newBooks)
 
   return (
@@ -19,12 +18,11 @@ function BookList({ newBooks, listName, onDelete }) {
       <h2>{listName}</h2>
       {newBooks.map((newBook) => (
         <BookCard
-          cover={newBook.volumeInfo.imageLinks.thumbnail}
-          title={newBook.volumeInfo.title}
           author={newBook.volumeInfo.authors}
-          description={newBook.saleInfo.country}
-          onCardBtnClick={onDelete}
           buttonName="Buch entfernen."
+          cover={newBook.volumeInfo.imageLinks.thumbnail}
+          onCardBtnClick={() => deleteBook(newBook.id)}
+          title={newBook.volumeInfo.title}
         />
       ))}
     </BookListWrapper>
@@ -33,12 +31,12 @@ function BookList({ newBooks, listName, onDelete }) {
 
 const BookListWrapper = styled.section`
   display: grid;
-  grid-template-rows: 1fr auto;
   grid-gap: 10px;
+  grid-template-rows: 1fr auto;
   padding: 10px;
 
   h2 {
-    text-align: left;
     margin: 0;
+    text-align: left;
   }
 `

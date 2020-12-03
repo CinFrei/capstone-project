@@ -13,11 +13,11 @@ function RectangleButton({ onClick, buttonName }) {
 }
 
 const ButtonStyled = styled.button`
-  width: 100%;
   background: var(--light-rose);
-  color: var(--primary-antrazit);
-  font-size: 1.2em;
-  font-family: 'Kaushan Script', cursive;
-  border: none;
   border-radius: 3px;
+  border: none;
+  color: var(--primary-antrazit);
+  font-family: 'Kaushan Script', cursive;
+  font-size: 1.2em;
+  width: 100%;
 `

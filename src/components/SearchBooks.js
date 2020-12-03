@@ -1,16 +1,15 @@
-import styled from 'styled-components/macro'
-
+import { ReactComponent as DownArrow } from '../assets/arrow-down.svg'
 import BookCard from './BookCard'
 import RectangleButton from './RectangleButton'
-import { ReactComponent as DownArrow } from '../assets/arrow-down.svg'
+import styled from 'styled-components/macro'
 
 /** @component */
 export default function SearchBooks({
-  results,
-  addGoogleBook,
-  handleSubmit,
+  addBook,
   handleChange,
+  handleSubmit,
   onButtonClick,
+  results,
 }) {
   return (
     <StyledModal>
@@ -21,10 +20,10 @@ export default function SearchBooks({
         <label>
           Suche:
           <input
-            type="text"
+            autoComplete="off"
             onChange={handleChange}
             placeholder="Suche nach Büchern"
-            autoComplete="off"
+            type="text"
           />
         </label>
 
@@ -32,13 +31,12 @@ export default function SearchBooks({
         <ul>
           {results.map((googleBook) => (
             <BookCard
-              key={googleBook.id}
-              cover={googleBook.volumeInfo.imageLinks.thumbnail}
-              title={googleBook.volumeInfo.title}
               author={googleBook.volumeInfo.authors}
-              description={googleBook.saleInfo.country}
-              onCardBtnClick={() => addGoogleBook(googleBook.id)}
               buttonName="Buch hinzufügen."
+              cover={googleBook.volumeInfo.imageLinks.thumbnail}
+              key={googleBook.id}
+              onCardBtnClick={() => addBook(googleBook.id)}
+              title={googleBook.volumeInfo.title}
             />
           ))}
         </ul>
@@ -48,23 +46,21 @@ export default function SearchBooks({
 }
 
 const StyledModal = styled.div`
-  position: fixed;
+  background: var(--secondary-background-gradient);
   bottom: 0px;
-  right: 0px;
-  z-index: 10;
-
   display: grid;
   place-items: center;
-
-  background: var(--secondary-background-gradient);
+  position: fixed;
+  right: 0px;
+  z-index: 10;
 `
 
 const StyledButton = styled.button`
-  width: 80px;
-  height: 20px;
-  border: none;
   background-color: transparent;
+  border: none;
+  height: 20px;
   justify-self: end;
+  width: 80px;
 
   svg {
     width: 25px;
@@ -75,17 +71,17 @@ const StyledButton = styled.button`
 `
 
 const FormStyled = styled.form`
+  border-radius: 3px;
+  border: 2px solid var(--dark-rose);
   margin: 10px 10px 20px;
   padding: 10px;
-  border: 2px solid var(--dark-rose);
-  border-radius: 3px;
 
   input {
+    border-radius: 3px;
+    border: 2px solid var(--light-rose);
     font-size: 1em;
-    width: 100%;
     margin: 10px 0;
     padding: 4px 0;
-    border: 2px solid var(--light-rose);
-    border-radius: 3px;
+    width: 100%;
   }
 `
