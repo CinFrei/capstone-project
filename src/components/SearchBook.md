@@ -1,9 +1,8 @@
-Basic BookList:
+Search Books
 
 ```js
-<BookList
-  listName="Bücherregal"
-  newBooks={[
+<SearchBook
+  results={[
     {
       author: ['Paulchen Panter', 'Peter Pan'],
       buttonName: 'Buch entfernen',
