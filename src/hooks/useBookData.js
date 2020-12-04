@@ -46,6 +46,7 @@ export default function useBookData() {
         `https://www.googleapis.com/books/v1/volumes?q=${searchBooks}&key=${process.env.REACT_APP_API_KEY}&maxResults=2`
       )
       .then((data) => {
+        console.log(data.data.items)
         setResult(data.data.items)
       })
   }

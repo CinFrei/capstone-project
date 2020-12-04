@@ -11,8 +11,6 @@ BookList.propTypes = {
 }
 
 function BookList({ newBooks, listName, deleteBook }) {
-  console.log(newBooks)
-
   return (
     <BookListWrapper>
       <h2>{listName}</h2>
@@ -21,6 +19,7 @@ function BookList({ newBooks, listName, deleteBook }) {
           author={newBook.volumeInfo.authors}
           buttonName="Buch entfernen."
           cover={newBook.volumeInfo.imageLinks.thumbnail}
+          key={newBook.id}
           onCardBtnClick={() => deleteBook(newBook.id)}
           title={newBook.volumeInfo.title}
         />

@@ -2,14 +2,20 @@ Basic BookList:
 
 ```js
 <BookList
-  listName="Bücherregal"
-  newBooks={[
-    {
-      author: ['Paulchen Panter', 'Peter Pan'],
+newBooks={{
+    books: {
+    1: { author: '["Paulchen Panter", "Peter Pan"]',
       buttonName: 'Buch entfernen',
       cover: './public/styleguide/sample-cover.jpg"',
-      title: 'Pauls Rosa Welt',
+      title: 'Pauls Rosa Welt',},
+    2: { author: '["Paulchen Panter", "Peter Pan"]',
+      buttonName: 'Buch entfernen',
+      cover: './public/styleguide/sample-cover.jpg"',
+      title: 'Pauls Rosa Welt',},
     },
-  ]}
+  }
+  deleteBook={() => {}}
+  listName="Bücherregal"
+
 />
 ```

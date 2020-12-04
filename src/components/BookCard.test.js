@@ -5,8 +5,8 @@ describe('BookCard', () => {
   it('renders correctly', () => {
     const { container } = render(
       <BookCard
-        coverUrl="beautiful picture"
-        title="Buchtitel"
+        cover="beautiful picture"
+        title={['Paul Tobin']}
         author="Buchautor"
         buttonName="Buch hinzufügen."
       />
