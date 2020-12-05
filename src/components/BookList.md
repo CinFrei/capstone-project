@@ -2,14 +2,20 @@ Basic BookList:
 
 ```js
 <BookList
-  listName="Bücherregal"
-  newBooks={[
-    {
-      title: 'Pauls Rosa Welt',
-      author: 'Paulchen Panter',
-      description: 'Rosa ist die Beste Farbe',
-      id: '007',
+newBooks={{
+    books: {
+    1: { author: '["Paulchen Panter", "Peter Pan"]',
+      buttonName: 'Buch entfernen',
+      cover: './public/styleguide/sample-cover.jpg"',
+      title: 'Pauls Rosa Welt',},
+    2: { author: '["Paulchen Panter", "Peter Pan"]',
+      buttonName: 'Buch entfernen',
+      cover: './public/styleguide/sample-cover.jpg"',
+      title: 'Pauls Rosa Welt',},
     },
-  ]}
+  }
+  deleteBook={() => {}}
+  listName="Bücherregal"
+
 />
 ```

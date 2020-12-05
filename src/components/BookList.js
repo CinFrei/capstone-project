@@ -1,7 +1,6 @@
+import BookCard from './BookCard'
 import PropTypes from 'prop-types'
 import styled from 'styled-components/macro'
-
-import BookCard from './BookCard'
 
 /** @component */
 export default BookList
@@ -11,17 +10,18 @@ BookList.propTypes = {
   newBooks: PropTypes.array,
 }
 
-function BookList({ newBooks, listName, onDelete }) {
+function BookList({ newBooks, listName, deleteBook }) {
   return (
     <BookListWrapper>
       <h2>{listName}</h2>
-      {newBooks.map(({ title, author, description, id }, index) => (
+      {newBooks.map((newBook) => (
         <BookCard
-          onDelete={() => onDelete(id)}
-          title={title}
-          author={author}
-          description={description}
-          key={id}
+          author={newBook.volumeInfo.authors}
+          buttonName="Buch entfernen."
+          cover={newBook.volumeInfo.imageLinks.thumbnail}
+          key={newBook.id}
+          onCardBtnClick={() => deleteBook(newBook.id)}
+          title={newBook.volumeInfo.title}
         />
       ))}
     </BookListWrapper>
@@ -30,12 +30,12 @@ function BookList({ newBooks, listName, onDelete }) {
 
 const BookListWrapper = styled.section`
   display: grid;
-  grid-template-rows: 1fr auto;
   grid-gap: 10px;
+  grid-template-rows: 1fr auto;
   padding: 10px;
 
   h2 {
-    text-align: left;
     margin: 0;
+    text-align: left;
   }
 `
