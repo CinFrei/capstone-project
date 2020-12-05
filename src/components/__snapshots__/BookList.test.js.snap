@@ -2,38 +2,32 @@
 
 exports[`BookList renders correctly 1`] = `
 .c3 {
-  width: 45px;
-  height: 45px;
-  margin-right: 8px;
-  padding: 12px;
   background: var(--light-rose);
+  border-radius: 3px;
   border: none;
-  border-radius: 45px;
-  grid-column: 2 / -1;
-  justify-self: end;
-}
-
-.c3 svg .st0 {
-  fill: var(--accent-color);
+  color: var(--primary-antrazit);
+  font-family: 'Kaushan Script',cursive;
+  font-size: 1.2em;
+  width: 100%;
 }
 
 .c1 {
-  position: relative;
-  min-width: 0;
+  background: var(--primary-background-gradient);
+  background: var(--primary-white);
+  border-radius: 3px;
+  border: 2px solid var(--dark-blue);
   display: grid;
+  grid-gap: 10px;
   grid-template-columns: 40% 60%;
   grid-template-rows: 1fr 45px;
-  grid-gap: 10px;
+  min-width: 0;
   padding: 10px;
-  background: var(--primary-white);
-  background: var(--primary-background-gradient);
-  border: 2px solid var(--dark-blue);
-  border-radius: 3px;
+  position: relative;
 }
 
 .c1 h3 {
-  margin: 0;
   color: var(--dark-blue);
+  margin: 0;
 }
 
 .c1 h4 {
@@ -57,50 +51,46 @@ exports[`BookList renders correctly 1`] = `
 
 .c0 {
   display: grid;
-  grid-template-rows: 1fr auto;
   grid-gap: 10px;
+  grid-template-rows: 1fr auto;
   padding: 10px;
 }
 
 .c0 h2 {
-  text-align: left;
   margin: 0;
+  text-align: left;
 }
 
 <section
   class="c0"
 >
   <h2>
-    Bücherregal
+    Bücheregal
   </h2>
-  <div
+  <li
     class="c1"
   >
     <img
-      alt=""
+      alt="The Witcher, Band 2 - Fuchskinder"
       class="c2"
+      src="http://books.google.com/books/content?id=6D13DwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
     />
     <div>
       <h3>
-        Pauls Rosa Welt
+        The Witcher, Band 2 - Fuchskinder
       </h3>
       <span>
         von
         <h4>
-          Paulchen Panter
+          Paul Tobin
         </h4>
       </span>
-      <p>
-        Rosa ist die Beste Farbe
-      </p>
     </div>
     <button
       class="c3"
     >
-      <svg>
-        delete-icon.svg
-      </svg>
+      Buch entfernen.
     </button>
-  </div>
+  </li>
 </section>
 `;

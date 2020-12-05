@@ -1,6 +1,5 @@
-import styled from 'styled-components/macro'
-
 import { ReactComponent as AddIcon } from '../assets/add.svg'
+import styled from 'styled-components/macro'
 
 /** @component */
 export default FloatingActionButton
@@ -14,24 +13,22 @@ function FloatingActionButton({ onClick }) {
 }
 
 const ButtonStyled = styled.button`
-  position: fixed;
+  background-color: var(--light-blue);
+  border-radius: 30px;
+  border: 2px solid var(--light-blue);
   bottom: 20px;
-  right: 20px;
-  z-index: 10;
-
   display: grid;
-  place-items: center;
-  width: 60px;
   height: 60px;
   padding: 10px;
-
-  background-color: var(--light-blue);
-  border: 2px solid var(--light-blue);
-  border-radius: 30px;
+  place-items: center;
+  position: fixed;
+  right: 20px;
+  width: 60px;
+  z-index: 10;
 
   svg {
-    width: 100%;
     margin: 0;
+    width: 100%;
   }
   svg .st0 {
     fill: var(--primary-anthrazit);

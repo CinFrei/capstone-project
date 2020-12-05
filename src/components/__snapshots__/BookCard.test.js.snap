@@ -2,38 +2,32 @@
 
 exports[`BookCard renders correctly 1`] = `
 .c2 {
-  width: 45px;
-  height: 45px;
-  margin-right: 8px;
-  padding: 12px;
   background: var(--light-rose);
+  border-radius: 3px;
   border: none;
-  border-radius: 45px;
-  grid-column: 2 / -1;
-  justify-self: end;
-}
-
-.c2 svg .st0 {
-  fill: var(--accent-color);
+  color: var(--primary-antrazit);
+  font-family: 'Kaushan Script',cursive;
+  font-size: 1.2em;
+  width: 100%;
 }
 
 .c0 {
-  position: relative;
-  min-width: 0;
+  background: var(--primary-background-gradient);
+  background: var(--primary-white);
+  border-radius: 3px;
+  border: 2px solid var(--dark-blue);
   display: grid;
+  grid-gap: 10px;
   grid-template-columns: 40% 60%;
   grid-template-rows: 1fr 45px;
-  grid-gap: 10px;
+  min-width: 0;
   padding: 10px;
-  background: var(--primary-white);
-  background: var(--primary-background-gradient);
-  border: 2px solid var(--dark-blue);
-  border-radius: 3px;
+  position: relative;
 }
 
 .c0 h3 {
-  margin: 0;
   color: var(--dark-blue);
+  margin: 0;
 }
 
 .c0 h4 {
@@ -55,17 +49,17 @@ exports[`BookCard renders correctly 1`] = `
   justify-self: stretch;
 }
 
-<div
+<li
   class="c0"
 >
   <img
-    alt=""
+    alt="Paul Tobin"
     class="c1"
-    src="blub"
+    src="beautiful picture"
   />
   <div>
     <h3>
-      Buchtitel
+      Paul Tobin
     </h3>
     <span>
       von
@@ -73,16 +67,11 @@ exports[`BookCard renders correctly 1`] = `
         Buchautor
       </h4>
     </span>
-    <p>
-      Buchbeschreibung
-    </p>
   </div>
   <button
     class="c2"
   >
-    <svg>
-      delete-icon.svg
-    </svg>
+    Buch hinzufügen.
   </button>
-</div>
+</li>
 `;

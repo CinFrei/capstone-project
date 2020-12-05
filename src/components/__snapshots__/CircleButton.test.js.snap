@@ -2,13 +2,13 @@
 
 exports[`CircleButton renders correctly 1`] = `
 .c0 {
-  width: 45px;
+  background: var(--light-rose);
+  border-radius: 45px;
+  border: none;
   height: 45px;
   margin-right: 8px;
   padding: 12px;
-  background: var(--light-rose);
-  border: none;
-  border-radius: 45px;
+  width: 45px;
 }
 
 .c0 svg .st0 {

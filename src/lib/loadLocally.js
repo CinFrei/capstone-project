@@ -3,6 +3,6 @@ export default function loadLocally(key) {
   try {
     return JSON.parse(jsonString)
   } catch (error) {
-    console.log('localStorage data was bad.')
+    console.log('LocalStorage data was bad.')
   }
 }
