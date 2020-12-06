@@ -42,11 +42,9 @@ export default function useBookData() {
   function handleSubmit(event) {
     event.preventDefault()
     axios
-      .get(
-        `https://www.googleapis.com/books/v1/volumes?q=${searchBooks}&key=${process.env.REACT_APP_API_KEY}&maxResults=2`
-      )
+      .get(`http://localhost:8080/search-books?q=${searchBooks}`)
       .then((data) => {
-        setResult(data.data.items)
+        setResult(data.data)
       })
   }
 
