@@ -32,7 +32,7 @@ export default createGlobalStyle`
 
   h1 {
     color: var(--dark-blue);
-    margin: 0px;
+    margin: 0;
     text-align: center;
   }
 
