@@ -8,6 +8,8 @@ export default function useBookData() {
   const [results, setResult] = useState([])
   const [selectedBooks, setSelectedBooks] = useState(loadLocally('books') ?? [])
   const [searchBooksModal, setSearchBooksModal] = useState(false)
+  const [bookDetailModal, setBookDetailModal] = useState(false)
+  const [book, setBook] = useState([])
 
   useEffect(() => {
     getSelectedBooks().then((books) => setSelectedBooks(books))
@@ -27,6 +29,11 @@ export default function useBookData() {
 
   function deleteBook(id) {
     setSelectedBooks(selectedBooks.filter((book) => id !== book.id))
+  }
+
+  function showDetail(id) {
+    setBook(selectedBooks.filter((book) => id === book.id))
+    setBookDetailModal(!bookDetailModal)
   }
 
   async function getSelectedBooks() {
@@ -66,6 +73,8 @@ export default function useBookData() {
 
   return {
     addBook,
+    book,
+    bookDetailModal,
     deleteBook,
     handleChange,
     handleSubmit,
@@ -73,6 +82,7 @@ export default function useBookData() {
     searchBooksModal,
     selectedBooks,
     setResult,
+    showDetail,
     toggleSearchBooksModal,
   }
 }

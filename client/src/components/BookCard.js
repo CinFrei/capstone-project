@@ -11,8 +11,16 @@ BookCard.propTypes = {
   cover: PropTypes.string,
   title: PropTypes.string,
 }
-
-function BookCard({ cover, title, author, onCardBtnClick, buttonName }) {
+/* wenn auf den mehr button geklickt wird soll sich das modal mit handleMoreButton öffnen */
+function BookCard({
+  cover,
+  title,
+  author,
+  onCardBtnClick,
+  buttonName,
+  handleMoreBtnClick,
+  buttonMoreName,
+}) {
   return (
     <BookCardWrapper>
       <StyledCover src={cover} alt={title} />
@@ -27,6 +35,12 @@ function BookCard({ cover, title, author, onCardBtnClick, buttonName }) {
         gridColumn="2 / -1"
         gridPosition="end"
         onClick={onCardBtnClick}
+      ></RectangleButton>
+      <RectangleButton
+        buttonName={buttonMoreName}
+        gridColumn="2 / -1"
+        gridPosition="end"
+        onClick={handleMoreBtnClick}
       ></RectangleButton>
     </BookCardWrapper>
   )

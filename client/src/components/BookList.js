@@ -10,7 +10,7 @@ BookList.propTypes = {
   newBooks: PropTypes.array,
 }
 
-function BookList({ newBooks, listName, deleteBook }) {
+function BookList({ newBooks, listName, deleteBook, showDetail }) {
   return (
     <BookListWrapper>
       <h2>{listName}</h2>
@@ -22,6 +22,8 @@ function BookList({ newBooks, listName, deleteBook }) {
           key={newBook.id}
           onCardBtnClick={() => deleteBook(newBook.id)}
           title={newBook.volumeInfo.title}
+          handleMoreBtnClick={() => showDetail(newBook.id)}
+          buttonMoreName="Mehr über's Buch"
         />
       ))}
     </BookListWrapper>

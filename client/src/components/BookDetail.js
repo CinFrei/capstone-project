@@ -6,56 +6,48 @@ import styled from 'styled-components/macro'
 export default BookDetail
 
 BookDetail.propTypes = {
-  author: PropTypes.array,
+  detailBook: PropTypes.array,
+  onButtonClick: PropTypes.func,
   buttonName: PropTypes.string,
-  cover: PropTypes.string,
-  title: PropTypes.string,
 }
 
-function BookDetail({
-  cover,
-  title,
-  subtitle,
-  author,
-  categories,
-  pageCount,
-  printType,
-  publishedDate,
-  publisher,
-  language,
-  description,
-  onButtonClick,
-  buttonName,
-}) {
+function BookDetail({ detailBook, onButtonClick, buttonName }) {
   return (
     <BookDetailModal>
-      <StyledCover src={cover} alt={title} />
-      <div>
-        <h3>{title}</h3>
-        <h3>{subtitle}</h3>
-        <span>
-          Autor: <p>{author}</p>
-        </span>
-        <span>
-          Kathegorien: <p>{categories}</p>
-        </span>
-        <span>
-          Seiten: <p>{pageCount}</p>
-        </span>
-        <span>
-          Format: <p>{printType}</p>
-        </span>
-        <span>
-          Erscheinungsdatum: <p>{publishedDate}</p>
-        </span>
-        <span>
-          Verlag: <p>{publisher}</p>
-        </span>
-        <span>
-          Sprache: <p>{language}</p>
-        </span>
-        <p>{description}</p>
-      </div>
+      {detailBook.map((detailBook) => (
+        <div key={detailBook.id}>
+          <StyledCover
+            src={detailBook.volumeInfo.imageLinks.thumbnail}
+            alt={detailBook.volumeInfo.title}
+          />
+          <div>
+            <h3>{detailBook.volumeInfo.title}</h3>
+            <h3>{detailBook.volumeInfo.subtitle}</h3>
+            <span>
+              Autor: <p>{detailBook.volumeInfo.authors}</p>
+            </span>
+            <span>
+              Kathegorien: <p>{detailBook.volumeInfo.categories}</p>
+            </span>
+            <span>
+              Seiten: <p>{detailBook.volumeInfo.pageCount}</p>
+            </span>
+            <span>
+              Format: <p>{detailBook.volumeInfo.printType}</p>
+            </span>
+            <span>
+              Erscheinungsdatum: <p>{detailBook.volumeInfo.publishedDate}</p>
+            </span>
+            <span>
+              Verlag: <p>{detailBook.volumeInfo.publisher}</p>
+            </span>
+            <span>
+              Sprache: <p>{detailBook.volumeInfo.language}</p>
+            </span>
+            <p>{detailBook.volumeInfo.description}</p>
+          </div>
+        </div>
+      ))}
       <RectangleButton
         buttonName={buttonName}
         gridColumn="2 / -1"
@@ -77,7 +69,6 @@ const BookDetailModal = styled.li`
   grid-template-rows: 1fr 45px;
   min-width: 0;
   place-items: center;
-  position: fixed;
   right: 0px;
   z-index: 10;
 
