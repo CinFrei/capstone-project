@@ -15,42 +15,55 @@ function BookDetail({ detailBook, onButtonClick, buttonName }) {
   return (
     <BookDetailModal>
       {detailBook.map((detailBook) => (
-        <div key={detailBook.id}>
+        <StyledDetailWrapper key={detailBook.id}>
           <StyledCover
             src={detailBook.volumeInfo.imageLinks.thumbnail}
             alt={detailBook.volumeInfo.title}
           />
-          <div>
-            <h3>{detailBook.volumeInfo.title}</h3>
+          <StyledDetails>
+            <h2>{detailBook.volumeInfo.title}</h2>
             <h3>{detailBook.volumeInfo.subtitle}</h3>
-            <span>
-              Autor: <p>{detailBook.volumeInfo.authors}</p>
-            </span>
-            <span>
-              Kathegorien: <p>{detailBook.volumeInfo.categories}</p>
-            </span>
-            <span>
-              Seiten: <p>{detailBook.volumeInfo.pageCount}</p>
-            </span>
-            <span>
-              Format: <p>{detailBook.volumeInfo.printType}</p>
-            </span>
-            <span>
-              Erscheinungsdatum: <p>{detailBook.volumeInfo.publishedDate}</p>
-            </span>
-            <span>
-              Verlag: <p>{detailBook.volumeInfo.publisher}</p>
-            </span>
-            <span>
-              Sprache: <p>{detailBook.volumeInfo.language}</p>
-            </span>
+            <table>
+              <tr>
+                <th>Autor: </th>
+                <th> {detailBook.volumeInfo.authors}</th>
+              </tr>
+              <tr>
+                <th>Kathegorien: </th>
+                <th> {detailBook.volumeInfo.categories}</th>
+              </tr>
+              <tr>
+                <th>Seiten: </th>
+                <th> {detailBook.volumeInfo.pageCount}</th>
+              </tr>
+              <tr>
+                <th>Format: </th>
+                <th> {detailBook.volumeInfo.printType}</th>
+              </tr>
+              <tr>
+                <th>
+                  Erscheinungs-
+                  <br />
+                  datum:{' '}
+                </th>
+                <th> {detailBook.volumeInfo.publishedDate}</th>
+              </tr>
+              <tr>
+                <th>Verlag: </th>
+                <th> {detailBook.volumeInfo.publisher}</th>
+              </tr>
+              <tr>
+                <th>Sprache: </th>
+                <th> {detailBook.volumeInfo.language}</th>
+              </tr>
+            </table>
             <p>{detailBook.volumeInfo.description}</p>
-          </div>
-        </div>
+          </StyledDetails>
+        </StyledDetailWrapper>
       ))}
       <RectangleButton
         buttonName={buttonName}
-        gridColumn="2 / -1"
+        gridRow="2"
         gridPosition="end"
         onClick={onButtonClick}
       ></RectangleButton>
@@ -58,28 +71,26 @@ function BookDetail({ detailBook, onButtonClick, buttonName }) {
   )
 }
 
-const BookDetailModal = styled.li`
-  background: var(--primary-background-gradient);
-  background: var(--primary-white);
-  border-radius: 3px;
-  border: 2px solid var(--dark-blue);
+const BookDetailModal = styled.div`
+  background: var(--dark-blue);
   display: grid;
   grid-gap: 10px;
-  grid-template-columns: 40% 60%;
-  grid-template-rows: 1fr 45px;
+  grid-template-rows: auto 50px;
+  height: 100%;
   min-width: 0;
+  overflow-y: scroll;
   place-items: center;
-  right: 0px;
-  z-index: 10;
+  position: fixed;
+  right: 0;
+  top: 0px;
+  width: 100%;
+  z-index: 20;
 
-  h3 {
-    color: var(--dark-blue);
-    margin: 0;
+  h2 {
+    margin: 20px 0 0;
   }
-
-  h4 {
-    display: inline;
-    margin: 10px;
+  h3 {
+    margin: 5px 0 20px;
   }
 
   span {
@@ -89,10 +100,40 @@ const BookDetailModal = styled.li`
   p {
     margin: 15px 5px 0 3px;
   }
+
+  button {
+    position: fixed;
+    right: 5%;
+    width: 90%;
+    z-index: 10;
+    bottom: 20px;
+  }
 `
 
 const StyledCover = styled.img`
-  grid-column: 1 / span 1;
-  grid-row: 1 / span 2;
-  justify-self: stretch;
+  grid-row: 1;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  right: 0;
+`
+
+const StyledDetails = styled.div`
+  grid-row: 2;
+  height: 100%;
+  z-index: 2;
+  background: var(--dark-blue-gradient);
+  padding: 110px 60px;
+`
+
+const StyledDetailWrapper = styled.div`
+  grid-row: 1;
+  display: grid;
+  grid-gap: 10px;
+  grid-template-rows: 25% auto;
+  height: 100%;
+
+  table {
+    text-align: left;
+  }
 `

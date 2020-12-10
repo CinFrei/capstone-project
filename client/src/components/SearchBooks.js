@@ -46,7 +46,7 @@ export default function SearchBooks({
 }
 
 const StyledModal = styled.div`
-  background: var(--secondary-background-gradient);
+  background-color: var(--dark-blue);
   bottom: 0px;
   display: grid;
   place-items: center;

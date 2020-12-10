@@ -23,7 +23,6 @@ export default function App() {
 
   return (
     <StyledApp>
-      <h1>Book Owls</h1>
       <BookList
         listName="Bücherregal"
         newBooks={selectedBooks}

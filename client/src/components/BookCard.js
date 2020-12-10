@@ -47,10 +47,6 @@ function BookCard({
 }
 
 const BookCardWrapper = styled.li`
-  background: var(--primary-background-gradient);
-  background: var(--primary-white);
-  border-radius: 3px;
-  border: 2px solid var(--dark-blue);
   display: grid;
   grid-gap: 10px;
   grid-template-columns: 40% 60%;
@@ -60,7 +56,6 @@ const BookCardWrapper = styled.li`
   position: relative;
 
   h3 {
-    color: var(--dark-blue);
     margin: 0;
   }
 

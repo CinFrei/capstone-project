@@ -7,20 +7,16 @@ export default createGlobalStyle`
   }
 
   :root {
-    --accent-color: #ff9a00;
-    --dark-blue: #4b4c64;
-    --dark-rose: #e8c6b6;
-    --light-blue: #989dbd;
-    --light-rose: #f4e2df;
+    --accent-color: #ffa812;
+    --dark-blue: #404053;
+    --dark-blue-gradient: linear-gradient(0, rgba(64,64,83,1) 0%, rgba(64,64,83,1) 86%, rgba(64,64,83,0.5045923758586494) 95%, rgba(64,64,83,0) 100%);
+    --light-blue: #ced3f7;
     --primary-anthrazit: #4b4b4b;
-    --primary-background-gradient: linear-gradient(0, #ffffff 0%, #f2f2f2 100%);
-    --primary-grey: #f2f2f2;
-    --primary-white:  #ffffff;
-    --secondary-background-gradient: linear-gradient(0, rgba(242,242,242,1) 0%, rgba(255,255,255,1) 91%, rgba(255,255,255,0) 100%);
   }
 
   body {
-    color: var(--primary-anthrazit);
+    background-color: var(--dark-blue);
+    color: var(--light-blue);
     font-family: 'Marcellus', serif;
     font-size: 112.5%;
     margin: 0;
@@ -31,7 +27,7 @@ export default createGlobalStyle`
   }
 
   h1 {
-    color: var(--dark-blue);
+    color: var(--light-blue);
     margin: 0;
     text-align: center;
   }
