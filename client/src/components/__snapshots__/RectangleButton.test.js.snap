@@ -2,10 +2,10 @@
 
 exports[`RectangleButton renders correctly 1`] = `
 .c0 {
-  background: var(--light-rose);
+  background: var(--accent-color);
   border-radius: 3px;
   border: none;
-  color: var(--primary-antrazit);
+  color: var(--primary-anthrazit);
   font-family: 'Kaushan Script',cursive;
   font-size: 1.2em;
   width: 100%;

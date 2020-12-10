@@ -2,20 +2,18 @@
 
 exports[`BookList renders correctly 1`] = `
 .c3 {
-  background: var(--light-rose);
+  background: var(--accent-color);
   border-radius: 3px;
   border: none;
-  color: var(--primary-antrazit);
+  color: var(--primary-anthrazit);
   font-family: 'Kaushan Script',cursive;
   font-size: 1.2em;
+  grid-column: 2 / -1;
+  justify-self: end;
   width: 100%;
 }
 
 .c1 {
-  background: var(--primary-background-gradient);
-  background: var(--primary-white);
-  border-radius: 3px;
-  border: 2px solid var(--dark-blue);
   display: grid;
   grid-gap: 10px;
   grid-template-columns: 40% 60%;
@@ -26,7 +24,6 @@ exports[`BookList renders correctly 1`] = `
 }
 
 .c1 h3 {
-  color: var(--dark-blue);
   margin: 0;
 }
 
@@ -90,6 +87,11 @@ exports[`BookList renders correctly 1`] = `
       class="c3"
     >
       Buch entfernen.
+    </button>
+    <button
+      class="c3"
+    >
+      Mehr über's Buch
     </button>
   </li>
 </section>

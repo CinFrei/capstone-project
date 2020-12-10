@@ -1,0 +1,183 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BookDetail renders correctly 1`] = `
+.c4 {
+  background: var(--accent-color);
+  border-radius: 3px;
+  border: none;
+  color: var(--primary-anthrazit);
+  font-family: 'Kaushan Script',cursive;
+  font-size: 1.2em;
+  grid-row: 2;
+  justify-self: end;
+  width: 100%;
+}
+
+.c0 {
+  background: var(--dark-blue);
+  display: grid;
+  grid-gap: 10px;
+  grid-template-rows: auto 50px;
+  height: 100%;
+  min-width: 0;
+  overflow-y: scroll;
+  place-items: center;
+  position: fixed;
+  right: 0;
+  top: 0px;
+  width: 100%;
+  z-index: 20;
+}
+
+.c0 h2 {
+  margin: 20px 0 0;
+}
+
+.c0 h3 {
+  margin: 5px 0 20px;
+}
+
+.c0 span {
+  margin: 0 0 0 3.5px;
+}
+
+.c0 p {
+  margin: 15px 5px 0 3px;
+}
+
+.c0 button {
+  position: fixed;
+  right: 5%;
+  width: 90%;
+  z-index: 10;
+  bottom: 20px;
+}
+
+.c2 {
+  grid-row: 1;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  right: 0;
+}
+
+.c3 {
+  grid-row: 2;
+  height: 100%;
+  z-index: 2;
+  background: var(--dark-blue-gradient);
+  padding: 110px 60px;
+}
+
+.c1 {
+  grid-row: 1;
+  display: grid;
+  grid-gap: 10px;
+  grid-template-rows: 25% auto;
+  height: 100%;
+}
+
+.c1 table {
+  text-align: left;
+}
+
+<div
+  class="c0"
+>
+  <div
+    class="c1"
+  >
+    <img
+      alt="The Witcher, Band 2 - Fuchskinder"
+      class="c2"
+      src="http://books.google.com/books/content?id=6D13DwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+    />
+    <div
+      class="c3"
+    >
+      <h2>
+        The Witcher, Band 2 - Fuchskinder
+      </h2>
+      <h3>
+        Der Witcher
+      </h3>
+      <table>
+        <tr>
+          <th>
+            Autor: 
+          </th>
+          <th>
+             
+            Paul Tobin
+          </th>
+        </tr>
+        <tr>
+          <th>
+            Kathegorien: 
+          </th>
+          <th>
+             
+            Fiction
+          </th>
+        </tr>
+        <tr>
+          <th>
+            Seiten: 
+          </th>
+          <th>
+             
+            564
+          </th>
+        </tr>
+        <tr>
+          <th>
+            Format: 
+          </th>
+          <th>
+             
+            Book
+          </th>
+        </tr>
+        <tr>
+          <th>
+            Erscheinungs-
+            <br />
+            datum:
+             
+          </th>
+          <th>
+             
+            12.12.1992
+          </th>
+        </tr>
+        <tr>
+          <th>
+            Verlag: 
+          </th>
+          <th>
+             
+            Hüpfer Verlag
+          </th>
+        </tr>
+        <tr>
+          <th>
+            Sprache: 
+          </th>
+          <th>
+             
+            DE
+          </th>
+        </tr>
+      </table>
+      <p>
+        Der Hexer ist wieder auf einer Spannenden Reise, auf der er Monster besiegt, Prinzessin Ciri rettet, mit Dryaden spricht und flotte Sprüche abgibt.
+      </p>
+    </div>
+  </div>
+  <button
+    class="c4"
+  >
+    Buch hinzufügen.
+  </button>
+</div>
+`;

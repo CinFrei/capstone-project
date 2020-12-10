@@ -5,18 +5,28 @@ describe('BookDetail', () => {
   it('renders correctly', () => {
     const { container } = render(
       <BookDetail
-        cover="beautiful picture"
-        title={['Paul Tobin']}
-        author="Buchautor"
+        detailBook={[
+          {
+            volumeInfo: {
+              authors: [`Paul Tobin`],
+              imageLinks: {
+                thumbnail:
+                  'http://books.google.com/books/content?id=6D13DwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api',
+              },
+              title: 'The Witcher, Band 2 - Fuchskinder',
+              categories: 'Fiction',
+              pageCount: '564',
+              printType: 'Book',
+              publishedDate: '12.12.1992',
+              publisher: 'Hüpfer Verlag',
+              language: 'DE',
+              description:
+                'Der Hexer ist wieder auf einer Spannenden Reise, auf der er Monster besiegt, Prinzessin Ciri rettet, mit Dryaden spricht und flotte Sprüche abgibt.',
+              subtitle: 'Der Witcher',
+            },
+          },
+        ]}
         buttonName="Buch hinzufügen."
-        subtitle="Der Witcher"
-        categories="Fiction"
-        pageCount="564"
-        printType="Book"
-        publishedDate="12.12.1992"
-        publisher="Hüpfer Verlag"
-        language="DE"
-        description="Der Hexer ist wieder auf einer Spannenden Reise, auf der er Monster besiegt, Prinzessin Ciri rettet, mit Dryaden spricht und flotte Sprüche abgibt."
       />
     )
     expect(container.firstChild).toMatchSnapshot()
