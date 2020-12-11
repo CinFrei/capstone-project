@@ -1,19 +1,25 @@
 import { useState, useEffect } from 'react'
 import axios from 'axios'
+
 import loadLocally from '../lib/loadLocally'
 import saveLocally from '../lib/saveLocally'
 
 export default function useBookData() {
-  const [searchBooks, setSearchBooks] = useState(' ')
-  const [results, setResult] = useState([])
-  const [selectedBooks, setSelectedBooks] = useState(loadLocally('books') ?? [])
-  const [searchBooksModal, setSearchBooksModal] = useState(false)
-  const [bookDetailModal, setBookDetailModal] = useState(false)
   const [book, setBook] = useState([])
+  const [bookDetailModal, setBookDetailModal] = useState(false)
+  const [results, setResult] = useState([])
+  const [searchBooks, setSearchBooks] = useState(' ')
+  const [searchBooksModal, setSearchBooksModal] = useState(false)
+  const [selectedBooks, setSelectedBooks] = useState(loadLocally('books') ?? [])
 
   useEffect(() => {
     getSelectedBooks().then((books) => setSelectedBooks(books))
   }, [])
+
+  async function getSelectedBooks() {
+    const res = await fetch('/books')
+    return await res.json()
+  }
 
   useEffect(() => {
     saveLocally('books', selectedBooks)
@@ -29,16 +35,6 @@ export default function useBookData() {
 
   function deleteBook(id) {
     setSelectedBooks(selectedBooks.filter((book) => id !== book.id))
-  }
-
-  function showDetail(id) {
-    setBook(selectedBooks.filter((book) => id === book.id))
-    setBookDetailModal(!bookDetailModal)
-  }
-
-  async function getSelectedBooks() {
-    const res = await fetch('/books')
-    return await res.json()
   }
 
   function handleChange(event) {
@@ -65,6 +61,11 @@ export default function useBookData() {
         }
         console.log(error.config)
       })
+  }
+
+  function showDetail(id) {
+    setBook(selectedBooks.filter((book) => id === book.id))
+    setBookDetailModal(!bookDetailModal)
   }
 
   function toggleSearchBooksModal() {

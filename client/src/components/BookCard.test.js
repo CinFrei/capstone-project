@@ -5,10 +5,10 @@ describe('BookCard', () => {
   it('renders correctly', () => {
     const { container } = render(
       <BookCard
-        cover="beautiful picture"
-        title={['Paul Tobin']}
         author="Buchautor"
         buttonName="Buch hinzufügen."
+        cover="beautiful picture"
+        title={['Paul Tobin']}
       />
     )
     expect(container.firstChild).toMatchSnapshot()

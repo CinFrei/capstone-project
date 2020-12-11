@@ -1,47 +1,53 @@
 import PropTypes from 'prop-types'
-import RectangleButton from './RectangleButton'
 import styled from 'styled-components/macro'
+
+import RectangleButton from './RectangleButton'
 
 /** @component */
 export default BookCard
 
 BookCard.propTypes = {
   author: PropTypes.array,
+  buttonMoreName: PropTypes.string,
   buttonName: PropTypes.string,
   cover: PropTypes.string,
+  handleMoreButtonClick: PropTypes.func,
+  onCardButtonClick: PropTypes.func,
   title: PropTypes.string,
 }
-/* wenn auf den mehr button geklickt wird soll sich das modal mit handleMoreButton öffnen */
+
 function BookCard({
-  cover,
-  title,
   author,
-  onCardBtnClick,
-  buttonName,
-  handleMoreBtnClick,
   buttonMoreName,
+  buttonName,
+  cover,
+  handleMoreButtonClick,
+  onCardButtonClick,
+  title,
 }) {
   return (
     <BookCardWrapper>
-      <StyledCover src={cover} alt={title} />
+      <CoverStyled src={cover} alt={title} />
       <div>
         <h3>{title}</h3>
         <span>
           von<h4>{author}</h4>
         </span>
       </div>
+      {/* DeleteButton */}
       <RectangleButton
         buttonName={buttonName}
         gridColumn="2 / -1"
         gridPosition="end"
-        onClick={onCardBtnClick}
-      ></RectangleButton>
+        onClick={onCardButtonClick}
+      />
+      {/* DetailButton */}
       <RectangleButton
         buttonName={buttonMoreName}
         gridColumn="2 / -1"
         gridPosition="end"
-        onClick={handleMoreBtnClick}
-      ></RectangleButton>
+        onClick={handleMoreButtonClick}
+      />
     </BookCardWrapper>
   )
 }
@@ -73,7 +79,7 @@ const BookCardWrapper = styled.li`
   }
 `
 
-const StyledCover = styled.img`
+const CoverStyled = styled.img`
   grid-column: 1 / span 1;
   grid-row: 1 / span 2;
   justify-self: stretch;

@@ -1,9 +1,10 @@
+import styled from 'styled-components/macro'
+import useBookData from './hooks/useBookData'
+
+import BookDetail from './components/BookDetail'
 import BookList from './components/BookList'
 import FloatingActionButton from './components/FloatingActionButton'
 import SearchBooks from './components/SearchBooks'
-import styled from 'styled-components/macro'
-import useBookData from './hooks/useBookData'
-import BookDetail from './components/BookDetail'
 
 export default function App() {
   const {
@@ -22,11 +23,11 @@ export default function App() {
   } = useBookData()
 
   return (
-    <StyledApp>
+    <AppStyled>
       <BookList
+        deleteBook={deleteBook}
         listName="Bücherregal"
         newBooks={selectedBooks}
-        deleteBook={deleteBook}
         showDetail={showDetail}
       />
       <FloatingActionButton onClick={toggleSearchBooksModal} />
@@ -42,15 +43,15 @@ export default function App() {
       )}
       {bookDetailModal && (
         <BookDetail
+          buttonName="Schließen"
           detailBook={book}
           onButtonClick={showDetail}
-          buttonName="Schließen"
         />
       )}
-    </StyledApp>
+    </AppStyled>
   )
 }
 
-const StyledApp = styled.div`
+const AppStyled = styled.div`
   position: relative;
 `

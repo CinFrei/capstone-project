@@ -6,6 +6,7 @@ export default RectangleButton
 
 RectangleButton.propTypes = {
   buttonName: PropTypes.string,
+  onClick: PropTypes.func,
 }
 
 function RectangleButton({
@@ -17,10 +18,10 @@ function RectangleButton({
 }) {
   return (
     <ButtonStyled
-      onClick={onClick}
       gridColumn={gridColumn}
       gridPosition={gridPosition}
       gridRow={gridRow}
+      onClick={onClick}
     >
       {buttonName}
     </ButtonStyled>

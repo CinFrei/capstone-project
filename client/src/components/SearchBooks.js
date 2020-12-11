@@ -1,10 +1,22 @@
 import { ReactComponent as DownArrow } from '../assets/arrow-down.svg'
-import BookCard from './BookCard'
-import RectangleButton from './RectangleButton'
+import PropTypes from 'prop-types'
 import styled from 'styled-components/macro'
 
+import BookCard from './BookCard'
+import RectangleButton from './RectangleButton'
+
 /** @component */
-export default function SearchBooks({
+export default SearchBooks
+
+SearchBooks.propTypes = {
+  addBook: PropTypes.func,
+  handleChange: PropTypes.func,
+  handleSubmit: PropTypes.func,
+  onButtonClick: PropTypes.func,
+  results: PropTypes.array,
+}
+
+function SearchBooks({
   addBook,
   handleChange,
   handleSubmit,
@@ -12,10 +24,10 @@ export default function SearchBooks({
   results,
 }) {
   return (
-    <StyledModal>
-      <StyledButton onClick={onButtonClick}>
+    <ModalStyled>
+      <ButtonStyled onClick={onButtonClick}>
         <DownArrow />
-      </StyledButton>
+      </ButtonStyled>
       <FormStyled onSubmit={handleSubmit}>
         <label>
           Suche:
@@ -26,7 +38,6 @@ export default function SearchBooks({
             type="text"
           />
         </label>
-
         <RectangleButton type="submit" buttonName="Suche Starten" />
         <ul>
           {results.map((googleBook) => (
@@ -35,17 +46,17 @@ export default function SearchBooks({
               buttonName="Buch hinzufügen."
               cover={googleBook.volumeInfo.imageLinks.thumbnail}
               key={googleBook.id}
-              onCardBtnClick={() => addBook(googleBook.id)}
+              onCardButtonClick={() => addBook(googleBook.id)}
               title={googleBook.volumeInfo.title}
             />
           ))}
         </ul>
       </FormStyled>
-    </StyledModal>
+    </ModalStyled>
   )
 }
 
-const StyledModal = styled.div`
+const ModalStyled = styled.div`
   background-color: var(--dark-blue);
   bottom: 0px;
   display: grid;
@@ -55,7 +66,7 @@ const StyledModal = styled.div`
   z-index: 10;
 `
 
-const StyledButton = styled.button`
+const ButtonStyled = styled.button`
   background-color: transparent;
   border: none;
   height: 20px;

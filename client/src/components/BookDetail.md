@@ -2,17 +2,17 @@ BookDetail:
 
 ```js
 <BookDetail
-  buttonName="zurück"
-  cover="./public/styleguide/sample-cover.jpg"
-  title="Das Schwert der Vorsehung"
-  subtitle="Der Witcher"
   author="Andrzej Sapkowski"
+  buttonName="zurück"
   categories="Fiction"
+  cover="./public/styleguide/sample-cover.jpg"
+  description="Der Hexer ist wieder auf einer Spannenden Reise, auf der er Monster besiegt, Prinzessin Ciri rettet, mit Dryaden spricht und flotte Sprüche abgibt."
+  language="DE"
   pageCount="564"
   printType="Book"
   publishedDate="12.12.1992"
   publisher="Hüpfer Verlag"
-  language="DE"
-  description="Der Hexer ist wieder auf einer Spannenden Reise, auf der er Monster besiegt, Prinzessin Ciri rettet, mit Dryaden spricht und flotte Sprüche abgibt."
+  subtitle="Der Witcher"
+  title="Das Schwert der Vorsehung"
 />
 ```

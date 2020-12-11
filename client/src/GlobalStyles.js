@@ -8,8 +8,8 @@ export default createGlobalStyle`
 
   :root {
     --accent-color: #ffa812;
-    --dark-blue: #404053;
     --dark-blue-gradient: linear-gradient(0, rgba(64,64,83,1) 0%, rgba(64,64,83,1) 86%, rgba(64,64,83,0.5045923758586494) 95%, rgba(64,64,83,0) 100%);
+    --dark-blue: #404053;
     --light-blue: #ced3f7;
     --primary-anthrazit: #4b4b4b;
   }

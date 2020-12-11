@@ -1,26 +1,27 @@
 import PropTypes from 'prop-types'
-import RectangleButton from './RectangleButton'
 import styled from 'styled-components/macro'
+
+import RectangleButton from './RectangleButton'
 
 /** @component */
 export default BookDetail
 
 BookDetail.propTypes = {
+  buttonName: PropTypes.string,
   detailBook: PropTypes.array,
   onButtonClick: PropTypes.func,
-  buttonName: PropTypes.string,
 }
 
-function BookDetail({ detailBook, onButtonClick, buttonName }) {
+function BookDetail({ buttonName, detailBook, onButtonClick }) {
   return (
     <BookDetailModal>
       {detailBook.map((detailBook) => (
-        <StyledDetailWrapper key={detailBook.id}>
-          <StyledCover
+        <DetailWrapperStyled key={detailBook.id}>
+          <CoverStyled
             src={detailBook.volumeInfo.imageLinks.thumbnail}
             alt={detailBook.volumeInfo.title}
           />
-          <StyledDetails>
+          <DetailsStyled>
             <h2>{detailBook.volumeInfo.title}</h2>
             <h3>{detailBook.volumeInfo.subtitle}</h3>
             <table>
@@ -44,7 +45,7 @@ function BookDetail({ detailBook, onButtonClick, buttonName }) {
                 <th>
                   Erscheinungs-
                   <br />
-                  datum:{' '}
+                  datum:
                 </th>
                 <th> {detailBook.volumeInfo.publishedDate}</th>
               </tr>
@@ -58,20 +59,20 @@ function BookDetail({ detailBook, onButtonClick, buttonName }) {
               </tr>
             </table>
             <p>{detailBook.volumeInfo.description}</p>
-          </StyledDetails>
-        </StyledDetailWrapper>
+          </DetailsStyled>
+        </DetailWrapperStyled>
       ))}
       <RectangleButton
         buttonName={buttonName}
         gridRow="2"
         gridPosition="end"
         onClick={onButtonClick}
-      ></RectangleButton>
+      />
     </BookDetailModal>
   )
 }
 
-const BookDetailModal = styled.div`
+const BookDetailModal = styled.section`
   background: var(--dark-blue);
   display: grid;
   grid-gap: 10px;
@@ -87,14 +88,10 @@ const BookDetailModal = styled.div`
   z-index: 20;
 
   h2 {
-    margin: 20px 0 0;
+    margin-top: 20px;
   }
   h3 {
     margin: 5px 0 20px;
-  }
-
-  span {
-    margin: 0 0 0 3.5px;
   }
 
   p {
@@ -102,34 +99,34 @@ const BookDetailModal = styled.div`
   }
 
   button {
+    bottom: 20px;
     position: fixed;
     right: 5%;
     width: 90%;
     z-index: 10;
-    bottom: 20px;
   }
 `
 
-const StyledCover = styled.img`
+const CoverStyled = styled.img`
   grid-row: 1;
-  width: 100%;
   position: fixed;
-  top: 0;
   right: 0;
+  top: 0;
+  width: 100%;
 `
 
-const StyledDetails = styled.div`
+const DetailsStyled = styled.div`
+  background: var(--dark-blue-gradient);
   grid-row: 2;
   height: 100%;
-  z-index: 2;
-  background: var(--dark-blue-gradient);
   padding: 110px 60px;
+  z-index: 2;
 `
 
-const StyledDetailWrapper = styled.div`
-  grid-row: 1;
+const DetailWrapperStyled = styled.div`
   display: grid;
   grid-gap: 10px;
+  grid-row: 1;
   grid-template-rows: 25% auto;
   height: 100%;
 
