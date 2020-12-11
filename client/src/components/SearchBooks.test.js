@@ -24,8 +24,8 @@ describe('SearchBooks', () => {
     const handleChangeMock = jest.fn()
     const handleSubmitMock = jest.fn()
     const onButtonClickMock = jest.fn()
-    const setResultMock = jest.fn()
     const resultsMock = jest.fn()
+    const setResultMock = jest.fn()
 
     handleSubmitMock.mockImplementation(() => {
       return {
