@@ -1,6 +1,17 @@
+import PropTypes from 'prop-types'
+
 import BookDetail from './components/BookDetail'
 import BookList from './components/BookList'
-import Navigation from './components/Navigation'
+
+export default MainPage
+
+MainPage.propTypes = {
+  book: PropTypes.array,
+  bookDetailModal: PropTypes.func,
+  deleteBook: PropTypes.func,
+  selectedBooks: PropTypes.array,
+  showDetail: PropTypes.func,
+}
 
 function MainPage({
   book,
@@ -11,6 +22,7 @@ function MainPage({
 }) {
   return (
     <div>
+      <h1>Zuhaus ist's am schönsten</h1>
       <BookList
         deleteBook={deleteBook}
         listName="Bücherregal"
@@ -24,9 +36,6 @@ function MainPage({
           onButtonClick={showDetail}
         />
       )}
-      <Navigation />
     </div>
   )
 }
-
-export default MainPage
