@@ -5,6 +5,7 @@ import { Route, Switch } from 'react-router-dom'
 import SearchPage from './SearchPage'
 import LibaryPage from './LibaryPage'
 import MainPage from './MainPage'
+import Navigation from './components/Navigation'
 
 export default function App() {
   const {
@@ -24,6 +25,7 @@ export default function App() {
 
   return (
     <AppStyled>
+      <NavigationStyled />
       <Switch>
         <Route exact path="/">
           <MainPage
@@ -63,4 +65,8 @@ export default function App() {
 
 const AppStyled = styled.div`
   position: relative;
+`
+const NavigationStyled = styled(Navigation)`
+  position: fixed;
+  bottom: 0;
 `
