@@ -35,4 +35,11 @@ export default createGlobalStyle`
   input, textarea, button {
     font-size: 1em;
   }
+
+  .is-active{
+    color: var(--accent-color);
+  }
+  .is-active svg{
+    fill: var(--accent-color);
+  }
 `

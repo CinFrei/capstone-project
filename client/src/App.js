@@ -25,7 +25,9 @@ export default function App() {
 
   return (
     <AppStyled>
-      <NavigationStyled />
+      <NavigationStyled>
+        <Navigation />
+      </NavigationStyled>
       <Switch>
         <Route exact path="/">
           <MainPage
@@ -66,7 +68,7 @@ export default function App() {
 const AppStyled = styled.div`
   position: relative;
 `
-const NavigationStyled = styled(Navigation)`
+const NavigationStyled = styled.div`
   position: fixed;
   bottom: 0;
 `

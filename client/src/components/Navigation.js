@@ -1,7 +1,7 @@
 import styled from 'styled-components/macro'
 import PropTypes from 'prop-types'
-
 import { NavLink } from 'react-router-dom'
+
 import { ReactComponent as HomeIcon } from '../assets/home.svg'
 import { ReactComponent as LibaryIcon } from '../assets/libary.svg'
 import { ReactComponent as SearchIcon } from '../assets/search.svg'
@@ -15,27 +15,21 @@ Navigation.propTypes = {
   onButtonClick: PropTypes.func,
 }
 
-function Navigation({ handleClick, className }) {
+function Navigation() {
   return (
-    <NavigationStyled className={className}>
-      <NavLink>
-        <NavigationItemStyled>
-          <HomeIcon />
-          <p>Zuhaus</p>
-        </NavigationItemStyled>
-      </NavLink>
-      <NavLink>
-        <NavigationItemStyled>
-          <SearchIcon />
-          <p>Suche</p>
-        </NavigationItemStyled>
-      </NavLink>
-      <NavLink>
-        <NavigationItemStyled>
-          <LibaryIcon />
-          <p>Bibliothek</p>
-        </NavigationItemStyled>
-      </NavLink>
+    <NavigationStyled>
+      <NavigationItemStyled to="/" exact activeClassName={`is-active`}>
+        <HomeIcon />
+        <p>Zuhaus</p>
+      </NavigationItemStyled>
+      <NavigationItemStyled to="/search" activeClassName={`is-active`}>
+        <SearchIcon />
+        <p>Suche</p>
+      </NavigationItemStyled>
+      <NavigationItemStyled to="/libary" activeClassName={`is-active`}>
+        <LibaryIcon />
+        <p>Bibliothek</p>
+      </NavigationItemStyled>
     </NavigationStyled>
   )
 }
@@ -48,12 +42,14 @@ const NavigationStyled = styled.nav`
   height: 63px;
 `
 
-const NavigationItemStyled = styled.div`
+const NavigationItemStyled = styled(NavLink)`
   padding: 10px;
   width: 30%;
   display: flex;
   align-items: center;
   flex-direction: column;
+  text-decoration: none;
+  color: var(--light-blue);
 
   svg {
     margin: 0;
