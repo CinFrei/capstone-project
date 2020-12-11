@@ -1,5 +1,6 @@
 import BookDetail from './components/BookDetail'
 import BookList from './components/BookList'
+import Navigation from './components/Navigation'
 
 function MainPage({
   book,
@@ -23,6 +24,7 @@ function MainPage({
           onButtonClick={showDetail}
         />
       )}
+      <Navigation />
     </div>
   )
 }
