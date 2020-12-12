@@ -28,11 +28,11 @@ app.use(function (err, req, res, next) {
   res.render('error')
 })
 
-app.use(express.static(path.join(__dirname, 'client/build')));
+app.use(express.static(path.join(__dirname, 'client/build')))
 
 app.get('/', function (req, res) {
-  res.sendFile(path.join(__dirname, 'client/build', 'index.html'));
-});
+  res.sendFile(path.join(__dirname, 'client/build', 'index.html'))
+})
 
 app.use(function (req, res, next) {
   next(createError(404))
@@ -92,4 +92,3 @@ function onListening() {
   var bind = typeof addr === 'string' ? 'pipe ' + addr : 'port ' + addr.port
   debug('Listening on ' + bind)
 }
-
