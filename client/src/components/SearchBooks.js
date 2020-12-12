@@ -4,6 +4,8 @@ import styled from 'styled-components/macro'
 import BookCard from './BookCard'
 import RectangleButton from './RectangleButton'
 
+import DefaultCover from '../assets/default-cover.png'
+
 /** @component */
 export default SearchBooks
 
@@ -23,7 +25,12 @@ function SearchBooks({ addBook, handleChange, handleSubmit, results }) {
           <BookCard
             author={googleBook.volumeInfo.authors}
             buttonName="Buch hinzufügen."
-            cover={googleBook.volumeInfo.imageLinks.thumbnail}
+            cover={
+              typeof googleBook.volumeInfo.imageLinks !== 'undefined' &&
+              typeof googleBook.volumeInfo.imageLinks.thumbnail !== 'undefined'
+                ? googleBook.volumeInfo.imageLinks.thumbnail
+                : DefaultCover
+            }
             key={googleBook.id}
             onCardButtonClick={() => addBook(googleBook.id)}
             title={googleBook.volumeInfo.title}

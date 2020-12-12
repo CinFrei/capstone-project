@@ -10,20 +10,15 @@ var searchBooksRouter = require('./routes/searchBooks')
 
 var app = express()
 app.use(cors())
-app.set('views', path.join(__dirname, 'views'))
-app.set('view engine', 'jade')
 
 app.use(logger('dev'))
 app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
 app.use(cookieParser())
-app.use(express.static(path.join(__dirname, 'public')))
 
 app.use('/search-books', searchBooksRouter)
 
-app.use(function (req, res, next) {
-  next(createError(404))
-})
+
 
 app.use(function (err, req, res, next) {
   res.locals.message = err.message
@@ -33,6 +28,16 @@ app.use(function (err, req, res, next) {
   res.render('error')
 })
 
+app.use(express.static(path.join(__dirname, 'client', 'build')));
+
+app.get('/', function (req, res) {
+  res.sendFile(path.join(__dirname, 'client', 'build', 'index.html'));
+});
+
+app.use(function (req, res, next) {
+  next(createError(404))
+})
+console.log(__dirname)
 module.exports = app
 
 var debug = require('debug')('book-owl:server')
