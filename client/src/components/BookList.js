@@ -7,25 +7,22 @@ import BookCard from './BookCard'
 export default BookList
 
 BookList.propTypes = {
-  deleteBook: PropTypes.func,
   listName: PropTypes.string,
   newBooks: PropTypes.array,
   showDetail: PropTypes.func,
 }
 
-function BookList({ deleteBook, listName, newBooks, showDetail }) {
+function BookList({ listName, newBooks, showDetail }) {
   return (
     <BookListWrapper>
       <h2>{listName}</h2>
       {newBooks.map((newBook) => (
         <BookCard
           author={newBook.volumeInfo.authors}
-          buttonMoreName="Mehr über's Buch"
-          buttonName="Buch entfernen."
+          buttonName="Mehr über's Buch"
           cover={newBook.volumeInfo.imageLinks.thumbnail}
-          handleMoreButtonClick={() => showDetail(newBook.id)}
+          onCardButtonClick={() => showDetail(newBook.id)}
           key={newBook.id}
-          onCardButtonClick={() => deleteBook(newBook.id)}
           title={newBook.volumeInfo.title}
         />
       ))}
@@ -37,7 +34,7 @@ const BookListWrapper = styled.ol`
   display: grid;
   grid-gap: 10px;
   grid-template-rows: 1fr auto;
-  padding: 10px;
+  padding: 20px;
 
   h2 {
     margin: 0;

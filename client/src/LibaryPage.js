@@ -24,7 +24,6 @@ function LibaryPage({
     <div>
       <h1>Echte Nachteulenmagie.</h1>
       <BookList
-        deleteBook={deleteBook}
         listName="Bücherregal"
         newBooks={selectedBooks}
         showDetail={showDetail}
@@ -34,6 +33,7 @@ function LibaryPage({
           buttonName="Schließen"
           detailBook={book}
           onButtonClick={showDetail}
+          deleteBook={deleteBook}
         />
       )}
     </div>

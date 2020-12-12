@@ -16,18 +16,12 @@ BookCard.propTypes = {
   title: PropTypes.string,
 }
 
-function BookCard({
-  author,
-  buttonMoreName,
-  buttonName,
-  cover,
-  handleMoreButtonClick,
-  onCardButtonClick,
-  title,
-}) {
+function BookCard({ author, buttonName, cover, onCardButtonClick, title }) {
   return (
     <BookCardWrapper>
-      <CoverStyled src={cover} alt={title} />
+      <CoverWrapper>
+        <CoverStyled src={cover} alt={title} />
+      </CoverWrapper>
       <div>
         <h3>{title}</h3>
         <span>
@@ -41,13 +35,6 @@ function BookCard({
         gridPosition="end"
         onClick={onCardButtonClick}
       />
-      {/* DetailButton */}
-      <RectangleButton
-        buttonName={buttonMoreName}
-        gridColumn="2 / -1"
-        gridPosition="end"
-        onClick={handleMoreButtonClick}
-      />
     </BookCardWrapper>
   )
 }
@@ -55,10 +42,9 @@ function BookCard({
 const BookCardWrapper = styled.li`
   display: grid;
   grid-gap: 10px;
-  grid-template-columns: 40% 60%;
-  grid-template-rows: 1fr 45px;
+  grid-template-columns: 30% auto;
+  grid-template-rows: 1fr 30px;
   min-width: 0;
-  padding: 10px;
   position: relative;
 
   h3 {
@@ -78,9 +64,14 @@ const BookCardWrapper = styled.li`
     margin: 15px 5px 0 3px;
   }
 `
-
-const CoverStyled = styled.img`
+const CoverWrapper = styled.div`
   grid-column: 1 / span 1;
   grid-row: 1 / span 2;
+  height: 140px;
   justify-self: stretch;
+  overflow: hidden;
+`
+
+const CoverStyled = styled.img`
+  width: 100%;
 `

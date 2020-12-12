@@ -71,4 +71,5 @@ const AppStyled = styled.div`
 const NavigationStyled = styled.div`
   position: fixed;
   bottom: 0;
+  z-index: 20;
 `

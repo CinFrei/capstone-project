@@ -29,8 +29,8 @@ function RectangleButton({
 }
 
 const ButtonStyled = styled.button`
-  background: var(--accent-color);
-  border-radius: 3px;
+  background: var(--light-blue);
+  border-radius: 1px;
   border: none;
   color: var(--primary-anthrazit);
   font-family: 'Kaushan Script', cursive;

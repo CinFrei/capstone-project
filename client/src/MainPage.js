@@ -24,7 +24,6 @@ function MainPage({
     <div>
       <h1>Zuhaus ist's am schönsten</h1>
       <BookList
-        deleteBook={deleteBook}
         listName="Bücherregal"
         newBooks={selectedBooks}
         showDetail={showDetail}
@@ -32,8 +31,11 @@ function MainPage({
       {bookDetailModal && (
         <BookDetail
           buttonName="Schließen"
+          buttonDeleteName="Buch entfernen."
           detailBook={book}
+          newBooks={selectedBooks}
           onButtonClick={showDetail}
+          deleteBook={deleteBook}
         />
       )}
     </div>

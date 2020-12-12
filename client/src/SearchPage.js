@@ -1,8 +1,6 @@
-import styled from 'styled-components/macro'
 import PropTypes from 'prop-types'
 
 import SearchBooks from './components/SearchBooks'
-import Navigation from './components/Navigation'
 
 export default SearchPage
 
@@ -22,23 +20,18 @@ function SearchPage({
   handleChange,
   handleSubmit,
   results,
-  searchBooksModal,
   setResult,
-  toggleSearchBooksModal,
 }) {
   return (
     <div>
       <h1>Die Suche geht los</h1>
-      {searchBooksModal && (
-        <SearchBooks
-          addBook={addBook}
-          handleChange={handleChange}
-          handleSubmit={handleSubmit}
-          onButtonClick={toggleSearchBooksModal}
-          results={results}
-          setResult={setResult}
-        />
-      )}
+      <SearchBooks
+        addBook={addBook}
+        handleChange={handleChange}
+        handleSubmit={handleSubmit}
+        results={results}
+        setResult={setResult}
+      />
     </div>
   )
 }
