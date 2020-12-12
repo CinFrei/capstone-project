@@ -18,7 +18,6 @@ app.use(express.urlencoded({ extended: false }))
 app.use(cookieParser())
 
 app.use('/search-books', searchBooksRouter)
-
 app.use('/db', dbRouter)
 
 app.use(function (err, req, res, next) {
@@ -29,16 +28,16 @@ app.use(function (err, req, res, next) {
   res.render('error')
 })
 
-app.use(express.static(path.join(__dirname, 'client', 'build')));
+app.use(express.static(path.join(__dirname, 'client/build')));
 
 app.get('/', function (req, res) {
-  res.sendFile(path.join(__dirname, 'client', 'build', 'index.html'));
+  res.sendFile(path.join(__dirname, 'client/build', 'index.html'));
 });
 
 app.use(function (req, res, next) {
   next(createError(404))
 })
-console.log(__dirname)
+
 module.exports = app
 
 var debug = require('debug')('book-owl:server')
