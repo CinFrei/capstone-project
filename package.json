@@ -13,7 +13,7 @@
     "client": "cd client && npm start",
     "prettier": "prettier --check \"**/*.{js,jsx,ts,tsx,md,mdx,html,css,json}\"",
     "server": "env-cmd nodemon server.js ",
-    "start": "cd client && npm run build && cd .. && node server.js "
+    "start": "node server.js "
   },
   "dependencies": {
     "axios": "^0.21.0",
