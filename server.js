@@ -7,6 +7,7 @@ var cors = require('cors')
 require('dotenv').config()
 
 var searchBooksRouter = require('./routes/searchBooks')
+var dbRouter = require('./routes/db')
 
 var app = express()
 app.use(cors())
@@ -18,7 +19,7 @@ app.use(cookieParser())
 
 app.use('/search-books', searchBooksRouter)
 
-
+app.use('/db', dbRouter)
 
 app.use(function (err, req, res, next) {
   res.locals.message = err.message
