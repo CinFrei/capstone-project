@@ -4,6 +4,8 @@ import styled from 'styled-components/macro'
 import BookCard from './BookCard'
 import RectangleButton from './RectangleButton'
 
+import DefaultCover from '../assets/default-cover.svg'
+
 /** @component */
 export default SearchBooks
 
@@ -20,10 +22,15 @@ function SearchBooks({ addBook, handleChange, handleSubmit, results }) {
     <SearchPageStyled>
       <ResultsStyled>
         {results.map((googleBook) => (
-          <BookCard
+          <BookCardStyled
             author={googleBook.volumeInfo.authors}
             buttonName="Buch hinzufügen."
-            cover={googleBook.volumeInfo.imageLinks.thumbnail}
+            cover={
+              typeof googleBook.volumeInfo.imageLinks !== 'undefined' &&
+              typeof googleBook.volumeInfo.imageLinks.thumbnail !== 'undefined'
+                ? googleBook.volumeInfo.imageLinks.thumbnail
+                : DefaultCover
+            }
             key={googleBook.id}
             onCardButtonClick={() => addBook(googleBook.id)}
             title={googleBook.volumeInfo.title}
@@ -56,6 +63,11 @@ const ResultsStyled = styled.ul`
   height: 100%;
   overflow-y: scroll;
   padding: 20px;
+  margin: 0;
+`
+
+const BookCardStyled = styled(BookCard)`
+  padding: 10px 0;
 `
 
 const FormStyled = styled.form`

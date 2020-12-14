@@ -24,7 +24,6 @@ function SearchPage({
 }) {
   return (
     <div>
-      <h1>Die Suche geht los</h1>
       <SearchBooks
         addBook={addBook}
         handleChange={handleChange}

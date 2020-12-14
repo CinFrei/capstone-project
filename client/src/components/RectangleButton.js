@@ -15,9 +15,11 @@ function RectangleButton({
   gridPosition,
   gridRow,
   onClick,
+  className,
 }) {
   return (
     <ButtonStyled
+      className={className}
       gridColumn={gridColumn}
       gridPosition={gridPosition}
       gridRow={gridRow}
@@ -33,7 +35,7 @@ const ButtonStyled = styled.button`
   border-radius: 1px;
   border: none;
   color: var(--primary-anthrazit);
-  font-family: 'Kaushan Script', cursive;
+  font-family: 'Marcellus', cursive;
   font-size: 1.2em;
   grid-column: ${(props) => props.gridColumn};
   grid-row: ${(props) => props.gridRow};

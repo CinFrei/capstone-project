@@ -1,7 +1,10 @@
 import PropTypes from 'prop-types'
+import styled from 'styled-components/macro'
 
 import BookDetail from './components/BookDetail'
 import BookList from './components/BookList'
+
+import { ReactComponent as BookOwlsIcon } from './assets/book-owls.svg'
 
 export default MainPage
 
@@ -21,15 +24,14 @@ function MainPage({
   showDetail,
 }) {
   return (
-    <div>
-      <h1>Zuhaus ist's am schönsten</h1>
-      <BookList
-        listName="Bücherregal"
-        newBooks={selectedBooks}
-        showDetail={showDetail}
-      />
+    <MainStyled>
+      <h1>Hallo Nachteule</h1>
+      <BookOwlsIconWrapper>
+        <BookOwlsIcon />
+      </BookOwlsIconWrapper>
+      <BookListStyled newBooks={selectedBooks} showDetail={showDetail} />
       {bookDetailModal && (
-        <BookDetail
+        <BookDetailStyled
           buttonName="Schließen"
           buttonDeleteName="Buch entfernen."
           detailBook={book}
@@ -38,6 +40,35 @@ function MainPage({
           deleteBook={deleteBook}
         />
       )}
-    </div>
+    </MainStyled>
   )
 }
+
+const MainStyled = styled.section`
+  display: grid;
+  grid-template-columns: 65% 35%;
+  min-width: 0;
+  position: relative;
+
+  h1 {
+    margin-left: 20px;
+    margin-top: 20px;
+    font-size: 2em;
+    text-align: left;
+  }
+`
+
+const BookListStyled = styled(BookList)`
+  grid-column: 1 / span 2;
+`
+
+const BookDetailStyled = styled(BookDetail)`
+  grid-column: 1 / span 2;
+`
+
+const BookOwlsIconWrapper = styled.div`
+  svg {
+    margin-top: 13px;
+    height: 110px;
+  }
+`

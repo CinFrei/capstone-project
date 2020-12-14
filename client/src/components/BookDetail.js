@@ -13,9 +13,15 @@ BookDetail.propTypes = {
   onButtonClick: PropTypes.func,
 }
 
-function BookDetail({ buttonName, deleteBook, detailBook, onButtonClick }) {
+function BookDetail({
+  buttonName,
+  deleteBook,
+  detailBook,
+  onButtonClick,
+  className,
+}) {
   return (
-    <BookDetailModal>
+    <BookDetailModal className={className}>
       <div>
         {detailBook.map((detailBook) => (
           <DetailWrapperStyled key={detailBook.id}>
@@ -61,7 +67,7 @@ function BookDetail({ buttonName, deleteBook, detailBook, onButtonClick }) {
                 </tr>
               </table>
               <p>{detailBook.volumeInfo.description}</p>
-              <RectangleButton
+              <DeleteBookButton
                 buttonName="Buch entfernen"
                 onClick={() => deleteBook(detailBook.id)}
               />
@@ -69,9 +75,7 @@ function BookDetail({ buttonName, deleteBook, detailBook, onButtonClick }) {
           </DetailWrapperStyled>
         ))}
       </div>
-      <ButtonWrapper>
-        <RectangleButton buttonName={buttonName} onClick={onButtonClick} />
-      </ButtonWrapper>
+      <CloseButton buttonName={buttonName} onClick={onButtonClick} />
     </BookDetailModal>
   )
 }
@@ -131,8 +135,12 @@ const DetailWrapperStyled = styled.div`
   }
 `
 
-const ButtonWrapper = styled.div`
-  bottom: 63px;
+const DeleteBookButton = styled(RectangleButton)`
+  margin-top: 20px;
+`
+
+const CloseButton = styled(RectangleButton)`
+  bottom: 80px;
   position: fixed;
   right: 5%;
   width: 90%;

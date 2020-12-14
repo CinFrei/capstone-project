@@ -12,9 +12,9 @@ BookList.propTypes = {
   showDetail: PropTypes.func,
 }
 
-function BookList({ listName, newBooks, showDetail }) {
+function BookList({ listName, newBooks, showDetail, className }) {
   return (
-    <BookListWrapper>
+    <BookListWrapper className={className}>
       <h2>{listName}</h2>
       {newBooks.map((newBook) => (
         <BookCard
@@ -32,9 +32,10 @@ function BookList({ listName, newBooks, showDetail }) {
 
 const BookListWrapper = styled.ol`
   display: grid;
-  grid-gap: 10px;
+  grid-gap: 20px;
   grid-template-rows: 1fr auto;
   padding: 20px;
+  margin: 0;
 
   h2 {
     margin: 0;

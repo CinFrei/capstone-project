@@ -16,17 +16,22 @@ BookCard.propTypes = {
   title: PropTypes.string,
 }
 
-function BookCard({ author, buttonName, cover, onCardButtonClick, title }) {
+function BookCard({
+  author,
+  buttonName,
+  cover,
+  onCardButtonClick,
+  title,
+  className,
+}) {
   return (
-    <BookCardWrapper>
+    <BookCardWrapper className={className}>
       <CoverWrapper>
         <CoverStyled src={cover} alt={title} />
       </CoverWrapper>
       <div>
         <h3>{title}</h3>
-        <span>
-          von<h4>{author}</h4>
-        </span>
+        <h4>{author}</h4>
       </div>
       {/* DeleteButton */}
       <RectangleButton
@@ -53,11 +58,7 @@ const BookCardWrapper = styled.li`
 
   h4 {
     display: inline;
-    margin: 10px;
-  }
-
-  span {
-    margin: 0 0 0 3.5px;
+    margin: 0;
   }
 
   p {
@@ -65,10 +66,9 @@ const BookCardWrapper = styled.li`
   }
 `
 const CoverWrapper = styled.div`
-  grid-column: 1 / span 1;
+  justify-self: stretch;
   grid-row: 1 / span 2;
   height: 140px;
-  justify-self: stretch;
   overflow: hidden;
 `
 

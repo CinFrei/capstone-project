@@ -22,7 +22,6 @@ function LibaryPage({
 }) {
   return (
     <div>
-      <h1>Echte Nachteulenmagie.</h1>
       <BookList
         listName="Bücherregal"
         newBooks={selectedBooks}
