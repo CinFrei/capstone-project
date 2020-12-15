@@ -15,9 +15,7 @@
     "react-scripts": "4.0.0",
     "styled-components": "^5.2.1",
     "uuid": "^8.3.1",
-    "web-vitals": "^0.2.4"
-  },
-  "devDependencies": {
+    "web-vitals": "^0.2.4",
     "react-styleguidist": "^11.1.2"
   },
   "scripts": {
