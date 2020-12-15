@@ -34,6 +34,10 @@ app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'client/build', 'index.html'))
 })
 
+/* app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'client/build', 'index.html'))
+})
+ */
 app.use(function (req, res, next) {
   next(createError(404))
 })
@@ -44,6 +48,7 @@ var debug = require('debug')('book-owl:server')
 var http = require('http')
 
 var port = normalizePort(process.env.PORT || '8080')
+
 app.set('port', port)
 
 var server = http.createServer(app)
