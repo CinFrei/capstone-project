@@ -98,71 +98,73 @@ exports[`BookDetail renders correctly 1`] = `
         Der Witcher
       </h3>
       <table>
-        <tr>
-          <th>
-            Autor: 
-          </th>
-          <th>
-             
-            Paul Tobin
-          </th>
-        </tr>
-        <tr>
-          <th>
-            Kathegorien: 
-          </th>
-          <th>
-             
-            Fiction
-          </th>
-        </tr>
-        <tr>
-          <th>
-            Seiten: 
-          </th>
-          <th>
-             
-            564
-          </th>
-        </tr>
-        <tr>
-          <th>
-            Format: 
-          </th>
-          <th>
-             
-            Book
-          </th>
-        </tr>
-        <tr>
-          <th>
-            Erscheinungs-
-            <br />
-            datum:
-          </th>
-          <th>
-             
-            12.12.1992
-          </th>
-        </tr>
-        <tr>
-          <th>
-            Verlag: 
-          </th>
-          <th>
-             
-            Hüpfer Verlag
-          </th>
-        </tr>
-        <tr>
-          <th>
-            Sprache: 
-          </th>
-          <th>
-             
-            DE
-          </th>
-        </tr>
+        <tbody>
+          <tr>
+            <td>
+              Autor: 
+            </td>
+            <td>
+               
+              Paul Tobin
+            </td>
+          </tr>
+          <tr>
+            <td>
+              Kathegorien: 
+            </td>
+            <td>
+               
+              Fiction
+            </td>
+          </tr>
+          <tr>
+            <td>
+              Seiten: 
+            </td>
+            <td>
+               
+              564
+            </td>
+          </tr>
+          <tr>
+            <td>
+              Format: 
+            </td>
+            <td>
+               
+              Book
+            </td>
+          </tr>
+          <tr>
+            <td>
+              Erscheinungs-
+              <br />
+              datum:
+            </td>
+            <td>
+               
+              12.12.1992
+            </td>
+          </tr>
+          <tr>
+            <td>
+              Verlag: 
+            </td>
+            <td>
+               
+              Hüpfer Verlag
+            </td>
+          </tr>
+          <tr>
+            <td>
+              Sprache: 
+            </td>
+            <td>
+               
+              DE
+            </td>
+          </tr>
+        </tbody>
       </table>
       <p>
         Der Hexer ist wieder auf einer Spannenden Reise, auf der er Monster besiegt, Prinzessin Ciri rettet, mit Dryaden spricht und flotte Sprüche abgibt.

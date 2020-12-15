@@ -25,38 +25,42 @@ function BookDetail({ buttonName, detailBook, onButtonClick }) {
             <h2>{detailBook.volumeInfo.title}</h2>
             <h3>{detailBook.volumeInfo.subtitle}</h3>
             <table>
-              <tr>
-                <th>Autor: </th>
-                <th> {detailBook.volumeInfo.authors}</th>
-              </tr>
-              <tr>
-                <th>Kathegorien: </th>
-                <th> {detailBook.volumeInfo.categories}</th>
-              </tr>
-              <tr>
-                <th>Seiten: </th>
-                <th> {detailBook.volumeInfo.pageCount}</th>
-              </tr>
-              <tr>
-                <th>Format: </th>
-                <th> {detailBook.volumeInfo.printType}</th>
-              </tr>
-              <tr>
-                <th>
-                  Erscheinungs-
-                  <br />
-                  datum:
-                </th>
-                <th> {detailBook.volumeInfo.publishedDate}</th>
-              </tr>
-              <tr>
-                <th>Verlag: </th>
-                <th> {detailBook.volumeInfo.publisher}</th>
-              </tr>
-              <tr>
-                <th>Sprache: </th>
-                <th> {detailBook.volumeInfo.language}</th>
-              </tr>
+              <tbody>
+                <tr>
+                  <td>Autor: </td>
+                  <td> {detailBook.volumeInfo.authors}</td>
+                </tr>
+
+                <tr>
+                  <td>Kathegorien: </td>
+                  <td> {detailBook.volumeInfo.categories}</td>
+                </tr>
+                <tr>
+                  <td>Seiten: </td>
+                  <td> {detailBook.volumeInfo.pageCount}</td>
+                </tr>
+                <tr>
+                  <td>Format: </td>
+                  <td> {detailBook.volumeInfo.printType}</td>
+                </tr>
+                <tr>
+                  <td>
+                    Erscheinungs-
+                    <br />
+                    datum:
+                  </td>
+                  <td> {detailBook.volumeInfo.publishedDate}</td>
+                </tr>
+                <tr>
+                  <td>Verlag: </td>
+                  <td> {detailBook.volumeInfo.publisher}</td>
+                </tr>
+
+                <tr>
+                  <td>Sprache: </td>
+                  <td> {detailBook.volumeInfo.language}</td>
+                </tr>
+              </tbody>
             </table>
             <p>{detailBook.volumeInfo.description}</p>
           </DetailsStyled>

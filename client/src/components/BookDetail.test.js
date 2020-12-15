@@ -4,6 +4,7 @@ import { render } from '@testing-library/react'
 
 const testDatabase = [
   {
+    id: '12345',
     volumeInfo: {
       authors: [`Paul Tobin`],
       imageLinks: {
@@ -25,19 +26,32 @@ const testDatabase = [
 ]
 
 describe('BookDetail', () => {
-  xit('renders correctly', () => {
-    const onButtonClick = jest.fn()
-    const { container, getByText } = render(
+  it('renders correctly', () => {
+    const onButtonClickMock = jest.fn()
+    const { container } = render(
       <BookDetail
         detailBook={testDatabase}
         buttonName="Schließen"
-        onButtonClick={onButtonClick}
+        onButtonClick={onButtonClickMock}
       />
     )
 
-    user.click(getByText('Schließen'))
-
     expect(container.firstChild).toMatchSnapshot()
-    expect(getByText('Schließen')).toHaveBeenCalledWith(onButtonClick)
+  })
+
+  it('calls on button click', () => {
+    const onButtonClickMock = jest.fn()
+    const { getByText } = render(
+      <BookDetail
+        detailBook={testDatabase}
+        buttonName="Schließen"
+        onButtonClick={onButtonClickMock}
+      />
+    )
+
+    const button = getByText('Schließen')
+    user.click(button)
+
+    expect(onButtonClickMock).toHaveBeenCalledTimes(1)
   })
 })

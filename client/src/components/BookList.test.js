@@ -10,6 +10,7 @@ describe('BookList', () => {
         listName="Bücheregal"
         newBooks={[
           {
+            id: '12345',
             volumeInfo: {
               authors: [`Paul Tobin`],
               imageLinks: {
