@@ -45,7 +45,7 @@ export default function useBookData() {
   function handleSubmit(event) {
     event.preventDefault()
     axios
-      .get(`${process.env.REACT_APP_ORIGIN}search-books?q=${searchBooks}`)
+      .get(`/search-books?q=${searchBooks}`)
       .then((data) => {
         setResult(data.data)
         console.log(data.data)
