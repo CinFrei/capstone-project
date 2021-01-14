@@ -13,7 +13,7 @@ function handleSubmit(req, res) {
 
   axios
     .get(
-      `https://www.googleapis.com/books/v1/volumes?q=${searchBooks}&key=${process.env.REACT_APP_API_KEY}&maxResults=2`
+      `https://www.googleapis.com/books/v1/volumes?q=${searchBooks}&key=${process.env.REACT_APP_API_KEY}&maxResults=10`
     )
     .then((data) => {
       res.send(data.data.items)
