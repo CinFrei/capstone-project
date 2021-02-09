@@ -22,7 +22,7 @@ export default createGlobalStyle`
     margin: 0;
   }
 
-  h1,h2,h3,h4,h5,h6 {
+  h1,h2 {
     font-family: 'Kaushan Script', cursive;
   }
 
@@ -34,5 +34,12 @@ export default createGlobalStyle`
 
   input, textarea, button {
     font-size: 1em;
+  }
+
+  .is-active{
+    color: var(--accent-color);
+  }
+  .is-active svg{
+    fill: var(--accent-color);
   }
 `

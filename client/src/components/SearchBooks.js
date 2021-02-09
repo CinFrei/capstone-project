@@ -1,9 +1,10 @@
-import { ReactComponent as DownArrow } from '../assets/arrow-down.svg'
 import PropTypes from 'prop-types'
 import styled from 'styled-components/macro'
 
 import BookCard from './BookCard'
 import RectangleButton from './RectangleButton'
+
+import DefaultCover from '../assets/default-cover.svg'
 
 /** @component */
 export default SearchBooks
@@ -16,18 +17,26 @@ SearchBooks.propTypes = {
   results: PropTypes.array,
 }
 
-function SearchBooks({
-  addBook,
-  handleChange,
-  handleSubmit,
-  onButtonClick,
-  results,
-}) {
+function SearchBooks({ addBook, handleChange, handleSubmit, results }) {
   return (
-    <ModalStyled>
-      <ButtonStyled onClick={onButtonClick}>
-        <DownArrow />
-      </ButtonStyled>
+    <SearchPageStyled>
+      <ResultsStyled>
+        {results.map((googleBook) => (
+          <BookCardStyled
+            author={googleBook.volumeInfo.authors}
+            buttonName="Buch hinzufügen."
+            cover={
+              typeof googleBook.volumeInfo.imageLinks !== 'undefined' &&
+              typeof googleBook.volumeInfo.imageLinks.thumbnail !== 'undefined'
+                ? googleBook.volumeInfo.imageLinks.thumbnail
+                : DefaultCover
+            }
+            key={googleBook.id}
+            onCardButtonClick={() => addBook(googleBook.id)}
+            title={googleBook.volumeInfo.title}
+          />
+        ))}
+      </ResultsStyled>
       <FormStyled onSubmit={handleSubmit}>
         <label>
           Suche:
@@ -39,56 +48,40 @@ function SearchBooks({
           />
         </label>
         <RectangleButton type="submit" buttonName="Suche Starten" />
-        <ul>
-          {results.map((googleBook) => (
-            <BookCard
-              author={googleBook.volumeInfo.authors}
-              buttonName="Buch hinzufügen."
-              cover={googleBook.volumeInfo.imageLinks.thumbnail}
-              key={googleBook.id}
-              onCardButtonClick={() => addBook(googleBook.id)}
-              title={googleBook.volumeInfo.title}
-            />
-          ))}
-        </ul>
       </FormStyled>
-    </ModalStyled>
+    </SearchPageStyled>
   )
 }
 
-const ModalStyled = styled.div`
+const SearchPageStyled = styled.div`
   background-color: var(--dark-blue);
-  bottom: 0px;
-  display: grid;
   place-items: center;
-  position: fixed;
-  right: 0px;
-  z-index: 10;
+  position: relative;
 `
 
-const ButtonStyled = styled.button`
-  background-color: transparent;
-  border: none;
-  height: 20px;
-  justify-self: end;
-  width: 80px;
+const ResultsStyled = styled.ul`
+  height: 100%;
+  overflow-y: scroll;
+  padding: 20px;
+  margin: 0;
+`
 
-  svg {
-    width: 25px;
-  }
-  svg .st0 {
-    fill: var(--primary-anthrazit);
-  }
+const BookCardStyled = styled(BookCard)`
+  padding: 10px 0;
 `
 
 const FormStyled = styled.form`
-  border-radius: 3px;
-  border: 2px solid var(--dark-rose);
-  margin: 10px 10px 20px;
-  padding: 10px;
+  background-color: var(--dark-blue);
+  border-top: 2px solid var(--primary-anthrazit);
+  bottom: 63px;
+  margin: 0;
+  padding: 20px;
+  position: fixed;
+  width: 100%;
+  z-index: 10;
 
   input {
-    border-radius: 3px;
+    border-radius: 1px;
     border: 2px solid var(--light-rose);
     font-size: 1em;
     margin: 10px 0;
