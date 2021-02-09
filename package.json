@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "postinstall": "cd client && npm install",
-    "build": "cd client && npm run build",
+    "build": "cd client && npm run build && npm run styleguide:build",
     "test:watch": "cd client && npm run test:watch",
     "test": "npm run lint && npm run prettier && cd client && npm test",
     "lint": "eslint . --ext .js",
@@ -13,6 +13,7 @@
     "client": "cd client && npm start",
     "prettier": "prettier --check \"**/*.{js,jsx,ts,tsx,md,mdx,html,css,json}\"",
     "server": "nodemon server.js ",
+    "styleguide": "cd client && npm run styleguide",
     "start": "node server.js"
   },
   "dependencies": {
