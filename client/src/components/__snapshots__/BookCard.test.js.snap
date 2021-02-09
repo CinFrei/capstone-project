@@ -50,18 +50,18 @@ exports[`BookCard renders correctly 1`] = `
   class="c0"
 >
   <img
-    alt="Paul Tobin"
+    alt="Peter Pan"
     class="c1"
     src="beautiful picture"
   />
   <div>
     <h3>
-      Paul Tobin
+      Peter Pan
     </h3>
     <span>
       von
       <h4>
-        Buchautor
+        Paul Tobin
       </h4>
     </span>
   </div>

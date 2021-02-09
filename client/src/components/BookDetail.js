@@ -21,61 +21,64 @@ function BookDetail({
   className,
 }) {
   return (
-    <BookDetailModal className={className}>
-      <div>
-        {detailBook.map((detailBook) => (
-          <DetailWrapperStyled key={detailBook.id}>
-            <CoverStyled
-              src={detailBook.volumeInfo.imageLinks.thumbnail}
-              alt={detailBook.volumeInfo.title}
-            />
-            <DetailsStyled>
-              <h2>{detailBook.volumeInfo.title}</h2>
-              <h3>{detailBook.volumeInfo.subtitle}</h3>
-              <table>
+    <BookDetailModal>
+      {detailBook.map((detailBook) => (
+        <DetailWrapperStyled key={detailBook.id}>
+          <CoverStyled
+            src={detailBook.volumeInfo.imageLinks.thumbnail}
+            alt={detailBook.volumeInfo.title}
+          />
+          <DetailsStyled>
+            <h2>{detailBook.volumeInfo.title}</h2>
+            <h3>{detailBook.volumeInfo.subtitle}</h3>
+            <table>
+              <tbody>
                 <tr>
-                  <th>Autor: </th>
-                  <th> {detailBook.volumeInfo.authors}</th>
+                  <td>Autor: </td>
+                  <td> {detailBook.volumeInfo.authors}</td>
+                </tr>
+
+                <tr>
+                  <td>Kathegorien: </td>
+                  <td> {detailBook.volumeInfo.categories}</td>
                 </tr>
                 <tr>
-                  <th>Kathegorien: </th>
-                  <th> {detailBook.volumeInfo.categories}</th>
+                  <td>Seiten: </td>
+                  <td> {detailBook.volumeInfo.pageCount}</td>
                 </tr>
                 <tr>
-                  <th>Seiten: </th>
-                  <th> {detailBook.volumeInfo.pageCount}</th>
+                  <td>Format: </td>
+                  <td> {detailBook.volumeInfo.printType}</td>
                 </tr>
                 <tr>
-                  <th>Format: </th>
-                  <th> {detailBook.volumeInfo.printType}</th>
-                </tr>
-                <tr>
-                  <th>
+                  <td>
                     Erscheinungs-
                     <br />
                     datum:
-                  </th>
-                  <th> {detailBook.volumeInfo.publishedDate}</th>
+                  </td>
+                  <td> {detailBook.volumeInfo.publishedDate}</td>
                 </tr>
                 <tr>
-                  <th>Verlag: </th>
-                  <th> {detailBook.volumeInfo.publisher}</th>
+                  <td>Verlag: </td>
+                  <td> {detailBook.volumeInfo.publisher}</td>
                 </tr>
+
                 <tr>
-                  <th>Sprache: </th>
-                  <th> {detailBook.volumeInfo.language}</th>
+                  <td>Sprache: </td>
+                  <td> {detailBook.volumeInfo.language}</td>
                 </tr>
-              </table>
-              <p>{detailBook.volumeInfo.description}</p>
-              <DeleteBookButton
-                buttonName="Buch entfernen"
-                onClick={() => deleteBook(detailBook.id)}
-              />
-            </DetailsStyled>
-          </DetailWrapperStyled>
-        ))}
-      </div>
-      <CloseButton buttonName={buttonName} onClick={onButtonClick} />
+              </tbody>
+            </table>
+            <p>{detailBook.volumeInfo.description}</p>
+          </DetailsStyled>
+        </DetailWrapperStyled>
+      ))}
+      <RectangleButton
+        buttonName={buttonName}
+        gridRow="2"
+        gridPosition="end"
+        onClick={onButtonClick}
+      />
     </BookDetailModal>
   )
 }
