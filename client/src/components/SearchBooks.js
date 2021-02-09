@@ -4,7 +4,7 @@ import styled from 'styled-components/macro'
 import BookCard from './BookCard'
 import RectangleButton from './RectangleButton'
 
-import DefaultCover from '../assets/default-cover.svg'
+import DefaultCover from '../assets/default-cover.png'
 
 /** @component */
 export default SearchBooks

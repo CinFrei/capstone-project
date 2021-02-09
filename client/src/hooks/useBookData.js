@@ -45,9 +45,10 @@ export default function useBookData() {
   function handleSubmit(event) {
     event.preventDefault()
     axios
-      .get(`http://localhost:8080/search-books?q=${searchBooks}`)
+      .get(`/search-books?q=${searchBooks}`)
       .then((data) => {
         setResult(data.data)
+        console.log(data.data)
       })
       .catch(function (error) {
         if (error.response) {
